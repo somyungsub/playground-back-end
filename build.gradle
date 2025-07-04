@@ -20,8 +20,16 @@ allprojects {
 
     repositories {
         mavenCentral()
+        gradlePluginPortal()
 //        jcenter()
-//        gradlePluginPortal()
+    }
+
+//    var mockitoAgent = configurations.create('mockitoAgent')
+
+    configurations {
+        mockitoAgent {
+            transitive = false // 의존성 트리 최소화
+        }
     }
 
     dependencies {
@@ -46,9 +54,25 @@ allprojects {
         testCompileOnly 'org.projectlombok:lombok:1.18.34'
         testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
 
+        testImplementation('org.junit-pioneer:junit-pioneer:2.3.0')
+        testImplementation('org.junit.platform:junit-platform-launcher')
+        testImplementation('org.mockito:mockito-core:5.18.0')
+        mockitoAgent 'org.mockito:mockito-core:5.18.0'
+//        testImplementation 'org.mockito:mockito-inline:5.2.0'
+//        mockitoAgent 'org.mockito:mockito-inline:5.2.0'       // javaagent로 사용할 mockito-inline 설정
+
+
         // spring
         implementation 'org.springframework.boot:spring-boot-starter'
-        implementation 'org.springframework.boot:spring-boot-starter-test'
         implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//        developmentOnly('org.springframework.boot:spring-boot-docker-compose')
+
+    }
+
+    test{
+        useJUnitPlatform()
+        jvmArgs("-javaagent:${configurations.mockitoAgent.asPath}")
+//        jvmArgs "-javaagent:${configurations.mockitoAgent.singleFile}" // mockito-inline
     }
 }
