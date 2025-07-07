@@ -1,0 +1,11 @@
+dependencies {
+//    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
+//    implementation 'io.r2dbc:r2dbc-postgresql:0.8.12.RELEASE'
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
+//    implementation 'io.r2dbc:r2dbc-postgresql' // 사용하는 데이터베이스에 따라 변경
+    implementation 'io.r2dbc:r2dbc-postgresql:0.8.12.RELEASE'
+    implementation 'dev.miku:r2dbc-mysql:0.8.2.RELEASE'
+    implementation 'io.r2dbc:r2dbc-pool' // Optional: R2DBC Connection Pooling
+
+}

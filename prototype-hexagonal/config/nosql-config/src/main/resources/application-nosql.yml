@@ -1,0 +1,22 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+  data:
+    mongodb:
+#      uri: mongodb://root:password@localhost:27047/test?authSource=admin
+      uri: mongodb://root:password@localhost:27017/test?authSource=admin
+      auto-index-creation: true
+
+
+#  docker run -d --name local-mongo2 --rm -p 27027:27017 mongo --replSet rs0
+
+
+#spring:
+#  config:
+#    activate:
+#      on-profile: local
+#  data:
+#    mongodb:
+#      uri: mongodb://localhost:27027,localhost:27028,localhost:27029/test?authSource=admin&replicaSet=rs0
+#      uri: mongodb://root:password@mongo1:27027,mongo2:27028,mongo3:27029/test?authSource=admin&replicaSet=rs0

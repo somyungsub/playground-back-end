@@ -1,0 +1,109 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+#    url: jdbc:oracle:thin:@localhost:1521/FREEPDB1
+    jdbc-url: jdbc:oracle:thin:@localhost:1521/FREEPDB1
+    username: HIS
+    password: password
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.Oracle12cDialect
+        hibernate.default_schema: HIS
+        default_schema: HIS
+      org:
+        hibernate:
+          envers:
+            audit_table_suffix: _h
+            store_data_at_delete: true
+
+wne:
+  his:
+    routing:
+      enabled: false
+      header-key: W1ne-Type
+      default-key-name: DESIGNER
+      jpa-default-schema: HIS
+      datasources:
+        - key-name: DESIGNER
+          header-mapping-values: [ 'test1','DESIGNER' ]
+          url: jdbc:oracle:thin:@localhost:1521/FREEPDB1
+          username: HIS
+          password: password
+          driver-class-name: oracle.jdbc.OracleDriver
+          maximum-pool-size: 10
+          pool-name: designer-pool
+          schema: HIS
+          connection-timeout: 10000
+        - key-name: RUNTIME
+          header-mapping-values: [ 'test2','RUNTIME' ]
+          url: jdbc:oracle:thin:@localhost:1521/FREEPDB1
+          username: HIS
+          password: password
+          driver-class-name: oracle.jdbc.OracleDriver
+          schema: HIS
+          maximum-pool-size: 10
+          pool-name: runtime-pool
+          connection-timeout: 10000
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    jdbc-url: jdbc:oracle:thin:@localhost:1521/FREEPDB1
+    username: HIS
+    password: password
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.Oracle12cDialect
+        hibernate.default_schema: HIS
+        default_schema: HIS
+      org:
+        hibernate:
+          envers:
+            audit_table_suffix: _h
+            store_data_at_delete: true
+
+wne:
+  his:
+    routing:
+      enabled: false
+      header-key: W1ne-Type
+      default-key-name: DESIGNER
+      jpa-default-schema: HIS
+      datasources:
+        - key-name: DESIGNER
+          header-mapping-values: [ 'test1','DESIGNER' ]
+          url: jdbc:oracle:thin:@localhost:1521/FREEPDB1
+          username: HIS
+          password: password
+          driver-class-name: oracle.jdbc.OracleDriver
+          schema: HIS
+          maximum-pool-size: 10
+          pool-name: designer-pool
+          connection-timeout: 10000
+        - key-name: RUNTIME
+          header-mapping-values: [ 'test2','RUNTIME' ]
+          url: jdbc:oracle:thin:@localhost:1521/FREEPDB1
+          username: HIS
+          password: password
+          driver-class-name: oracle.jdbc.OracleDriver
+          schema: HIS
+          maximum-pool-size: 10
+          pool-name: runtime-pool
+          connection-timeout: 10000

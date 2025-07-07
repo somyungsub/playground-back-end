@@ -1,0 +1,4 @@
+spring:
+  messages:
+    basename: message_sample_spread, message_member, message_order
+    encoding: UTF-8

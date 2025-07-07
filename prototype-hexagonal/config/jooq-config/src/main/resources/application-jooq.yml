@@ -1,0 +1,11 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    url: jdbc:postgresql://localhost:6432/test
+    username: root
+    password: password
+    driver-class-name: org.postgresql.Driver
+#  jooq:
+#    sql-dialect: POSTGRES

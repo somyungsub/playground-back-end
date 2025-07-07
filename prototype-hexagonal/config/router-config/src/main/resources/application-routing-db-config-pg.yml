@@ -1,0 +1,107 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    url: jdbc:postgresql://localhost:15432/wne3?currentSchema=his
+#    jdbc-url: jdbc:postgresql://localhost:15432/wne3?currentSchema=his
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        hibernate.default_schema: his
+        default_schema: his
+#      org:
+#        hibernate:
+#          envers:
+#            audit_table_suffix: _h
+#            store_data_at_delete: true
+wne:
+  his:
+    routing:
+      enabled: false
+      header-key: W1ne-Type
+      default-key-name: DESIGNER
+      jpa-default-schema: his
+      datasources:
+        - key-name: DESIGNER
+          header-mapping-values: [ 'test1','DESIGNER' ]
+          url: jdbc:postgresql://localhost:15432/wne3
+          username: postgres
+          password: password
+          driver-class-name: org.postgresql.Driver
+          schema: his
+          maximum-pool-size: 10
+          pool-name: designer-pool
+          connection-timeout: 10000
+        - key-name: RUNTIME
+          header-mapping-values: [ 'test2','RUNTIME' ]
+          url: jdbc:postgresql://localhost:25432/wne3
+          username: postgres
+          password: password
+          driver-class-name: org.postgresql.Driver
+          schema: his
+          maximum-pool-size: 10
+          pool-name: runtime-pool
+          connection-timeout: 10000
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    jdbc-url: jdbc:postgresql://localhost:15432/wne3?currentSchema=his
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        hibernate.default_schema: his
+        default_schema: his
+      org:
+        hibernate:
+          envers:
+            audit_table_suffix: _h
+            store_data_at_delete: true
+wne:
+  his:
+    routing:
+      enabled: false
+      header-key: W1ne-Type
+      default-key-name: DESIGNER
+      jpa-default-schema: his
+      datasources:
+        - key-name: DESIGNER
+          header-mapping-values: [ 'test1','DESIGNER' ]
+          url: jdbc:postgresql://localhost:15432/wne3
+          username: postgres
+          password: password
+          driver-class-name: org.postgresql.Driver
+          schema: his
+          maximum-pool-size: 10
+          pool-name: designer-pool
+          connection-timeout: 10000
+        - key-name: RUNTIME
+          header-mapping-values: [ 'test2','RUNTIME' ]
+          url: jdbc:postgresql://localhost:25432/wne3
+          username: postgres
+          password: password
+          driver-class-name: org.postgresql.Driver
+          schema: his
+          maximum-pool-size: 10
+          pool-name: runtime-pool
+          connection-timeout: 10000

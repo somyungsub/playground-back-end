@@ -1,0 +1,77 @@
+##wne.routing.datasource
+##spring:
+##  config:
+##    activate:
+##      on-profile: local
+#
+##spring:
+##  datasource:
+##    #    url: jdbc:postgresql://localhost:35432/wne3
+###    jdbc-url: jdbc:postgresql://localhost:35432/wne3
+##    jdbc-url: jdbc:postgresql://localhost:15432/wne3?currentSchema=his
+##    username: postgres
+##    password: password
+##    driver-class-name: org.postgresql.Driver
+##
+##  jpa:
+##    hibernate:
+##      ddl-auto: none
+##    show-sql: true
+##    properties:
+##      hibernate:
+##        format_sql: true
+##        dialect: org.hibernate.dialect.PostgreSQLDialect
+##        hibernate.default_schema: his
+##        default_schema: his
+#
+#
+#
+## docker run -d --name local-oracle -p 1521:1521 -e ORACLE_PWD=test container-registry.oracle.com/database/free:latest-lite
+## docker run -d --name local-oracle-db1 -p 11521:1521 -e ORACLE_PWD=test container-registry.oracle.com/database/free:latest-lite
+## docker run -d --name local-oracle-db1 -p 21522:1521 -e ORACLE_PWD=test container-registry.oracle.com/database/free:latest-lite
+## docker run -d --name local-oracle-db2 -p 21521:1521 -e ORACLE_PWD=test container-registry.oracle.com/database/free:latest-lite
+#
+##  -e ORACLE_SID=FREE1 \
+##  docker run -d --name local-oracle-db1 \
+##  -p 21522:1521 \
+##  -e ORACLE_PWD=test \
+##  -v oracle-data-1:/opt/oracle/oradata \
+##  container-registry.oracle.com/database/free:latest-lite
+#
+#spring:
+#  datasource:
+#    jdbc-url: jdbc:oracle:thin:@localhost:21521/FREEPDB1
+#    username: HIS
+#    password: test
+#    driver-class-name: oracle.jdbc.OracleDriver
+#  jpa:
+#    hibernate:
+#      ddl-auto: none
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.Oracle12cDialect
+#        hibernate.default_schema: his
+#        default_schema: HIS
+#
+#wne:
+#  his:
+#    routing:
+#      enabled: true
+#      header-key: W1ne-Type
+#      default-key-name: DESIGNER
+#      datasources:
+#        - key-name: DESIGNER
+#          header-mapping-values: [ 'test1','DESIGNER' ]
+#          url: jdbc:oracle:thin:@localhost:21521/FREEPDB1
+#          username: HIS
+#          password: test
+#          driver-class-name: oracle.jdbc.OracleDriver
+#          schema: his
+##        - key-name: RUNTIME
+##          header-mapping-values: [ 'test2','RUNTIME' ]
+##          url: jdbc:oracle:thin:@localhost:215211/FREEPDB1
+##          username: HIS
+##          password: test
+##          driver-class-name: oracle.jdbc.OracleDriver
+##          schema: his

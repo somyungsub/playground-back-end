@@ -1,0 +1,135 @@
+#version: '3.8'
+#
+#services:
+#  mongo:
+#    image: mongo:4.4-bionic
+#    container_name: local-mongo-compose
+#    ports:
+#      - "27047:27017"
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: root
+#      MONGO_INITDB_ROOT_PASSWORD: password
+#    command: --replSet rs0
+#    entrypoint: [ "/bin/bash", "-c", "--" ]
+#    restart: always
+#    tty: true
+#    stdin_open: true
+#    volumes:
+#      - ./mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh:ro
+
+
+
+
+#  docker exec -it local-mongo-test mongo --port 27017
+#  rs.initiate()
+
+#  docker exec -it local-mongo-test mongo -u root -p password --authenticationDatabase admin
+#  rs.initiate()
+
+#version: '3.8'
+#services:
+#  mongo:
+#    image: mongo:4.4-bionic
+#    container_name: local-mongo-test
+#    ports:
+#      - "27037:27017"
+#    environment:
+#      - MONGO_INITDB_ROOT_USERNAME=root
+#      - MONGO_INITDB_ROOT_PASSWORD=password
+#    command: ["--replSet", "rs0", "--keyFile", "/etc/secrets/mongo-keyfile"]
+#    volumes:
+#      - ./mongo-keyfile:/etc/secrets/mongo-keyfile
+#      - mongo-data:/data/db
+#volumes:
+#  mongo-data:
+
+
+
+
+
+#version: '3.8'
+#services:
+#  mongo1:
+#    image: mongo:latest
+#    container_name: mongo1
+#    ports:
+#      - 27027:27017
+#    environment:
+#      - MONGO_REPLICA_SET_NAME=rs0
+#    command: ["mongod", "--replSet", "rs0", "--bind_ip_all", "--noauth"]
+#
+#  mongo2:
+#    image: mongo:latest
+#    container_name: mongo2
+#    ports:
+#      - 27028:27017
+#    environment:
+#      - MONGO_REPLICA_SET_NAME=rs0
+#    command: ["mongod", "--replSet", "rs0", "--bind_ip_all", "--noauth"]
+#
+#  mongo3:
+#    image: mongo:latest
+#    container_name: mongo3
+#    ports:
+#      - 27029:27017
+#    environment:
+#      - MONGO_REPLICA_SET_NAME=rs0
+#    command: ["mongod", "--replSet", "rs0", "--bind_ip_all", "--noauth"]
+#
+#  setup:
+#    image: mongo:latest
+#    depends_on:
+#      - mongo1
+#      - mongo2
+#      - mongo3
+#    entrypoint: >
+#      bash -c "sleep 10 &&
+#               echo 'rs.initiate({_id: \"rs0\", members: [{ _id: 0, host: \"mongo1:27017\" }, { _id: 1, host: \"mongo2:27017\" }, { _id: 2, host: \"mongo3:27017\" }]})' |
+#               mongo --host mongo1:27017"
+
+
+#version: '3.8'
+#
+#services:
+#  mongo1:
+#    image: mongo:latest
+#    container_name: mongo1
+#    ports:
+#      - 27027:27017
+#    environment:
+#      - MONGO_REPLICA_SET_NAME=rs0
+#    command: ["mongod", "--replSet", "rs0", "--bind_ip_all", "--noauth"]
+#
+#  mongo2:
+#    image: mongo:latest
+#    container_name: mongo2
+#    ports:
+#      - 27028:27017
+#    environment:
+#      - MONGO_REPLICA_SET_NAME=rs0
+#    command: ["mongod", "--replSet", "rs0", "--bind_ip_all", "--noauth"]
+#
+#  mongo3:
+#    image: mongo:latest
+#    container_name: mongo3
+#    ports:
+#      - 27029:27017
+#    environment:
+#      - MONGO_REPLICA_SET_NAME=rs0
+#    command: ["mongod", "--replSet", "rs0", "--bind_ip_all", "--noauth"]
+#
+#  setup:
+#    image: mongo:latest
+#    depends_on:
+#      - mongo1
+#      - mongo2
+#      - mongo3
+#    entrypoint: >
+#      bash -c "
+#        sleep 20 &&
+#        echo 'rs.initiate({_id: \"rs0\", members: [
+#          { _id: 0, host: \"mongo1:27017\" },
+#          { _id: 1, host: \"mongo2:27017\" },
+#          { _id: 2, host: \"mongo3:27017\" }
+#        ]})' |
+#        mongo --host mongo1:27017"

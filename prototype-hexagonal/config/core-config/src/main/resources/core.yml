@@ -1,0 +1,9 @@
+prototype:
+  hexa:
+    core:
+      version: 1
+      arch: hexagonal
+      corePoolSize: 10
+      maxPoolSize: 20
+      queueCapacity: 100
+      threadNamePrefix: prototype-hexa-async-

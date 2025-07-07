@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+	<springProperty name="appName" scope="context" source="spring.cloud.config.profile" defaultValue="prototype" />
+	<springProperty name="logFilePath" scope="context" source="logging.file.path" defaultValue="./logs" />
+
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<!--springProfile-->
+		<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<file>${logFilePath}/${appName}.log</file>
+			<append>true</append>
+			<encoder>
+				<charset>UTF-8</charset>
+				<pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
+			</encoder>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<fileNamePattern>${logFilePath}/${appName}-%d{yyyyMMdd}.log</fileNamePattern>
+			</rollingPolicy>
+		</appender>
+	<!--/springProfile-->
+	
+	
+	<logger name="prototype" level="debug" />
+<!--	<logger name="org.hibernate.SQL" level="trace" />-->
+<!--	<logger name="org.hibernate.type.descriptor.sql" level="trace" />-->
+<!--	<logger name="org.springframework.web" level="debug" />-->
+	
+
+		<root level="info">
+			<appender-ref ref="FILE" />
+			<appender-ref ref="STDOUT" />
+		</root>
+
+</configuration>

@@ -1,0 +1,11 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+    import:
+      - sample.yml
+
+## 아쉬운데..
+#  messages:
+#    basename: message_sample,message_sample_spread
+#    encoding: UTF-8

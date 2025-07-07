@@ -1,0 +1,5 @@
+bootJar {
+    mainClass = 'prototype.hexa.designer.DesignerApplication'
+    archiveFileName = "${archiveBootFileNameJar}-${version}-designer.jar"
+    destinationDirectory = file(rootDir)
+}

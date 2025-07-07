@@ -1,0 +1,10 @@
+prototype:
+  hexa:
+    sample:
+      node-url-mongo: http://localhost:3000/rules/mongo
+      node-url-redis: http://localhost:3000/rules/redis
+      event:
+        topic-name: spread-topic
+        group-id: prototype-hexa-sample
+        group-id2: prototype-hexa-spread
+        kotlin-group-id: prototype-hexa-kotlin

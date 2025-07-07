@@ -1,0 +1,8 @@
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-jooq'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.jooq:jooq:3.15.0'
+    implementation 'org.jooq:jooq-meta:3.15.0'
+    implementation 'org.jooq:jooq-codegen:3.15.0'
+    implementation 'org.postgresql:postgresql:42.2.5'
+}

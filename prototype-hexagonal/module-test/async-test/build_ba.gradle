@@ -1,0 +1,54 @@
+plugins {
+    id 'nu.studer.jooq' version '7.1' // JOOQ Gradle 플러그인
+    id 'java'
+    id 'org.springframework.boot' version '2.7.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
+    implementation("org.springframework.boot:spring-boot-starter-jooq")
+    implementation("org.postgresql:postgresql:42.2.5") // PostgreSQL 드라이버
+
+    jooqGenerator("org.postgresql:postgresql:42.2.5") // 코드 생성을 위한 드라이버 의존성
+}
+
+jooq {
+    version = '3.16.0' // JOOQ 버전
+    configurations {
+        main {
+            generationTool {
+                jdbc {
+                    driver = 'org.postgresql.Driver'
+                    url = 'jdbc:postgresql://localhost:5432/test'
+                    user = 'root'
+                    password = 'password'
+                }
+                generator {
+                    name = 'org.jooq.codegen.JavaGenerator'
+                    database {
+                        name = 'org.jooq.meta.postgres.PostgresDatabase'
+                        inputSchema = 'sample' // 정확한 스키마 이름
+                    }
+                    generate {
+                        records = true
+                        pojos = true
+                    }
+                    target {
+                        packageName = 'prototype.hexa.asynctest.jooq.generated' // 생성된 코드의 패키지
+                        directory = 'src/main/generated' // 생성된 코드의 위치
+                    }
+                }
+            }
+        }
+    }
+}
+
+// sourceSets에 생성된 코드 디렉토리 추가
+sourceSets.main.java.srcDir 'src/main/generated'

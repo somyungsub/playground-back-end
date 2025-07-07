@@ -1,0 +1,32 @@
+plugins {
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springManageVersion}"
+}
+
+subprojects { subproject ->
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    dependencies {
+        // spring
+        implementation 'org.springframework.boot:spring-boot-starter-validation'
+        implementation 'org.springframework.boot:spring-boot-starter-test'
+
+        implementation (project(':prototype-hexagonal:module:common')) {
+            transitive = false  // 전이 의존성 비활성화
+        }
+    }
+
+    jar {
+        enabled = true
+    }
+
+    bootJar {
+        enabled = false
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
+

@@ -1,0 +1,22 @@
+
+
+// module/sample/build.gradle
+apply plugin: 'org.jetbrains.kotlin.jvm' // Kotlin 플러그인을 루트에서 불러옴
+
+dependencies {
+    // 코틀린 관련 추가
+    implementation 'org.jetbrains.kotlin:kotlin-reflect'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.21'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.6.0"
+
+}
+
+// module/sample/build.gradle
+tasks.named('compileKotlin') {
+    dependsOn(tasks.named('generateQueryDSL')) // QueryDSL 작업이 먼저 실행되도록 설정
+}
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE // 중복된 파일을 제외
+}
+

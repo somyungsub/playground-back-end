@@ -1,0 +1,7 @@
+prototype:
+  hexa:
+    rabbit-mq:
+      exchange-name: send_notification_exchange
+      sample-queue-name: sampleQueue
+      spread-queue-name: spreadQueue
+      test-queue-name: testQueue

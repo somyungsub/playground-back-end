@@ -1,0 +1,5 @@
+bootJar {
+    mainClass = 'prototype.hexa.runtime.RuntimeApplication'
+    archiveFileName = "${archiveBootFileNameJar}-${version}-runtime.jar"
+    destinationDirectory = file(rootDir)
+}

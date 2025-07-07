@@ -1,0 +1,8 @@
+prototype:
+  hexa:
+    producer-test:
+      queue-name: producer-test-rabbit-queue
+      queue-test-name: test-rabbit-mq
+      kafka-group-id: producer-test-kafka-group-id1
+      kafka-group-id2: producer-test-kafka-group-id2
+      kafka-topic-name: producer-test-kafka-topic

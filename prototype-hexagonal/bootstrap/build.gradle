@@ -1,0 +1,23 @@
+plugins {
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springManageVersion}"
+}
+
+subprojects {
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    dependencies {
+        // bootstrap - web 공통
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+//        implementation 'org.springframework.boot:spring-boot-starter-actuator'
+        implementation 'org.springframework.boot:spring-boot-configuration-processor'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        implementation 'org.springframework.boot:spring-boot-starter-logging'
+        implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+        // 추가 라이브러리, mac m1 관련
+        implementation 'io.netty:netty-resolver-dns-native-macos:4.1.79.Final:osx-aarch_64'
+    }
+}
+

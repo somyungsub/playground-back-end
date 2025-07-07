@@ -1,0 +1,11 @@
+server:
+  port: 21000
+spring:
+  profiles:
+    group:
+      local: ["local"]
+  config:
+    import:
+      - application-core.yml
+      - application-rdb.yml
+      - application-jooq.yml

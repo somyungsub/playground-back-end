@@ -1,0 +1,10 @@
+dependencies {
+    // 설정모듈
+    implementation project(':prototype-hexagonal:config:core-config')
+    implementation project(':prototype-hexagonal:config:redis-config')
+    implementation project(':prototype-hexagonal:config:rabbit-mq-config')
+    implementation project(':prototype-hexagonal:config:kafka-config')
+
+    // 실행모듈
+    implementation project(':prototype-hexagonal:module-test:consumer-test')
+}

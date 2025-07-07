@@ -1,0 +1,22 @@
+server:
+  port: 29999
+spring:
+  profiles:
+    group:
+      local: ["local", "message-local"]
+  config:
+    import:
+      - application-core.yml
+      - application-rdb.yml
+      - application-r2dbc.yml
+      - application-redis.yml
+      - application-nosql.yml
+      - application-kafka.yml
+      - application-swagger.yml
+      - application-sample.yml
+      - application-member.yml
+      - application-order.yml
+  messages:
+#    basename: message_common, message_sample, message_sample_spread, message_member, message_order
+    basename: message_common, message_sample
+    encoding: UTF-8

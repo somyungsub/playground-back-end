@@ -1,0 +1,24 @@
+bootJar {
+    mainClass = 'prototype.hexa.sample.SampleApplication'
+    archiveFileName = "${archiveBootFileNameJar}-${version}-sample-app.jar"
+    destinationDirectory = file(rootDir)
+}
+
+dependencies {
+    // 설정모듈
+    implementation project(':prototype-hexagonal:config:core-config')
+    implementation project(':prototype-hexagonal:config:third-party-config')
+    implementation project(':prototype-hexagonal:config:rdb-config')
+    implementation project(':prototype-hexagonal:config:r2dbc-config')
+    implementation project(':prototype-hexagonal:config:redis-config')
+    implementation project(':prototype-hexagonal:config:nosql-config')
+    implementation project(':prototype-hexagonal:config:kafka-config')
+    implementation project(':prototype-hexagonal:config:swagger-config')
+
+    // 실행모듈
+    implementation project(':prototype-hexagonal:module:common')
+    implementation project(':prototype-hexagonal:module:sample')
+    implementation project(':prototype-hexagonal:module:membership')
+    implementation project(':prototype-hexagonal:module:order')
+
+}

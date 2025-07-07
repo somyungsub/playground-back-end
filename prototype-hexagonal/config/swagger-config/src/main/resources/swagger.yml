@@ -1,0 +1,6 @@
+prototype:
+  hexa:
+    swagger:
+      title: API Documentation
+      version: 1.0
+      description: API documentation

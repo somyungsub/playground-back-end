@@ -1,0 +1,18 @@
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+//    implementation 'io.lettuce.core:lettuce-core'
+//    implementation 'io.netty:netty-resolver-dns:4.1.79.Final' // Netty 버전을 명시적으로 설정
+//    implementation 'io.lettuce.core:lettuce-core:6.1.9.RELEASE'
+//    implementation('io.lettuce.core:lettuce-core') {
+//        exclude group: 'io.netty', module: 'netty-resolver-dns'
+//    }
+
+//    implementation 'io.lettuce.core:lettuce-core'
+    //
+    // implementation -> fw -> redis모듈
+
+//    api('io.lettuce.core:lettuce-core') {
+//        exclude group: 'io.netty', module: 'netty-common'
+//    }
+
+}

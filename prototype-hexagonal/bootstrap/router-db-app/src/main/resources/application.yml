@@ -1,0 +1,40 @@
+server:
+  port: 29999
+spring:
+  profiles:
+    group:
+      local: ["local", "router-test"]
+      local-pg: ["local", "routing-db-config-pg"]
+      local-oracle: ["local", "routing-db-config-oracle"]
+#  datasource:
+##    url: jdbc:postgresql://localhost:35432/wne3
+##    jdbc-url: jdbc:postgresql://localhost:35432/wne3
+#    jdbc-url: jdbc:postgresql://localhost:15432/wne3?currentSchema=his
+#    username: postgres
+#    password: password
+#    driver-class-name: org.postgresql.Driver
+#  jpa:
+#    hibernate:
+#      ddl-auto: none
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#        hibernate.default_schema: his
+
+
+#server:
+#  port: 29999
+#spring:
+#  profiles:
+#    group:
+#      local: ["local"]
+#  config:
+#    import:
+#      - application-router-test.yml
+#      - application-router-config.yml
+##management:
+##  health:
+##    db:
+##      enabled: false

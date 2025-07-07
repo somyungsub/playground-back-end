@@ -1,0 +1,9 @@
+prototype:
+  hexa:
+    data-config:
+      key: aaaa
+      value: tttt
+#    redis:
+#      host: localhost
+#      port: 6701
+#      database: 1

@@ -1,0 +1,10 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+    import: classpath:rabbit-mq.yml
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: root
+    password: password

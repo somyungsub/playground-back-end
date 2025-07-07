@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+    import:
+      - redis-config.yml
+  redis:
+    host: localhost
+    database: 0
+    port: 6379
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        time-between-eviction-runs: 1000ms

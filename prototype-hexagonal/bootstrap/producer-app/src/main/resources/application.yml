@@ -1,0 +1,16 @@
+server:
+  port: 49999
+spring:
+  profiles:
+    group:
+      local: ["local"]
+  config:
+    import:
+      - application-core.yml
+      - application-redis.yml
+      - application-rabbit-mq.yml
+      - application-producer-test.yml
+      - application-kafka.yml
+#  messages:
+#    basename: message_common, message_sample, message_sample_spread, message_member, message_order
+#    encoding: UTF-8

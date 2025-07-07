@@ -1,0 +1,49 @@
+#spring:
+#  config:
+#    activate:
+#      on-profile: local
+#  r2dbc:
+#    username: root
+#    password: password
+#    pool:
+#      enabled: true
+#      max-size: 20
+#      initial-size: 10
+#
+#logging:
+#  level:
+#    io.r2dbc.postgresql.QUERY: INFO # PostgreSQL R2DBC 쿼리 로깅
+#    org.springframework.r2dbc.core: DEBUG # Spring R2DBC 템플릿에서 생성되는 SQL 로그
+#
+#---
+#spring:
+#  profiles:
+#    active: pg
+#  r2dbc:
+#    url: r2dbc:postgresql://localhost:5432/test
+#
+#---
+#spring:
+#  profiles:
+#    active: mysql
+#  r2dbc:
+#    url: r2dbc:mysql://localhost:3306/test
+
+
+spring:
+  config:
+    activate:
+      on-profile: local
+  r2dbc:
+    url: r2dbc:postgresql://localhost:6432/test?currentSchema=sample
+    username: root
+    password: password
+    pool:
+      enabled: true
+      max-size: 20
+      initial-size: 10
+
+logging:
+  level:
+    io.r2dbc.postgresql.QUERY: INFO # PostgreSQL R2DBC 쿼리 로깅
+    org.springframework.r2dbc.core: DEBUG # Spring R2DBC 템플릿에서 생성되는 SQL 로그
