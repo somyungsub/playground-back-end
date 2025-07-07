@@ -1,5 +1,5 @@
 rootProject.name = 'playground-back-end'
 
-include 'backend'
-include 'backend:spring-boot'
-include 'backend:library'
+include 'dev-diary-log'
+include 'dev-diary-log:spring-boot'
+include 'dev-diary-log:library'
