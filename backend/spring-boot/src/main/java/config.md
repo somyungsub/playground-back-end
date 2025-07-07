@@ -259,4 +259,9 @@ on-profile 조건이 만족해야 import가 작동함.
 Config Server PropertySource는 보통 Local YML보다 우선.
 단, Local profile YML은 Remote base보다 항상 우선.
 import나 bootstrap.yml 위치/조건에 따라 붙는 타이밍으로 우선순위를 제어 가능!
-- 경우에 따라 달라 질 수 있다? 
+- 경우에 따라 달라 질 수 있다?
+
+## 3.라우팅 적용시, 인증실패
+```java
+// TODO 정리하기
+```

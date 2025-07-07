@@ -1,4 +1,4 @@
-rootProject.name = 'dev-diary-log'
+rootProject.name = 'playground-back-end'
 
 include 'backend'
 include 'backend:spring-boot'
