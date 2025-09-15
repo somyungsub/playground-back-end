@@ -12,7 +12,7 @@ subprojects { subproject ->
         implementation 'org.springframework.boot:spring-boot-starter-validation'
         implementation 'org.springframework.boot:spring-boot-starter-test'
 
-        implementation (project(':prototype-hexagonal:module:common')) {
+        implementation (project(':module:common')) {
             transitive = false  // 전이 의존성 비활성화
         }
     }

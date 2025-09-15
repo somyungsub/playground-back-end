@@ -1,0 +1,44 @@
+plugins {
+    id "org.springframework.boot" version "${springBootVersion}"
+    id "io.spring.dependency-management" version "${springManageVersion}"
+    id "java"
+}
+
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21) // JDK 21 권장
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.netty:netty-resolver-dns-native-macos:4.1.79.Final:osx-aarch_64'
+    // Spring Boot 기본
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.springframework.boot:spring-boot-starter'
+
+    // Spring AI Core
+    implementation 'org.springframework.ai:spring-ai-core:1.0.0-M6'
+
+    // OpenAI Connector (ChatGPT API 사용)
+    implementation 'org.springframework.ai:spring-ai-openai-spring-boot-starter:1.0.0-M6'
+
+    // Ollama Starter (자동 설정)
+    implementation "org.springframework.ai:spring-ai-ollama-spring-boot-starter:1.0.0-M6"
+
+
+    // JSON 처리
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+//    compileOnly('org.projectlombok:lombok:1.18.26')
+//    annotationProcessor('org.projectlombok:lombok:1.18.26')
+
+    // 테스트
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}

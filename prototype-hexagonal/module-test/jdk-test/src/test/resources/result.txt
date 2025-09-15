@@ -1,0 +1,607 @@
+Targets
+    Occurrences of 'ServiceException.of' in Project
+Found occurrences in Project  (306 usages found)
+    Unclassified  (265 usages found)
+        wne-common-his.module.wne-common-his-approve.main  (14 usages found)
+            wne.common.his.approve.controller  (13 usages found)
+                ApproveController.java  (13 usages found)
+                    save(ApproveEntity)  (3 usages found)
+                        82 throw ServiceException.of("승인타입이 존재하지 않습니다.");
+                        95 throw ServiceException.of("기존 결재정보를 찾을 수 없습니다.");
+                        103 throw ServiceException.of("결재가 이미 처리되어 수정할 수 없는 상태입니다.");
+                    cancel(Long)  (1 usage found)
+                        142 throw ServiceException.of("해당 결재건은 삭제불가합니다.");
+                    get(Long)  (1 usage found)
+                        173 throw ServiceException.of("승인정보가 존재하지 않습니다.");
+                    processItem(ApproveItemEntity)  (6 usages found)
+                        559 throw ServiceException.of("이미 종료된 건 입니다.");
+                        564 throw ServiceException.of("미처리건만 처리가능합니다.");
+                        590 throw ServiceException.of("이전 차수가 아직 미처리 상태입니다.");
+                        595 throw ServiceException.of("이전 차수가 종료된 상태입니다.");
+                        634 throw ServiceException.of("처리 불가능한 건입니다.");
+                        662 throw ServiceException.of((ApproveStatusEnum.A002.codeEquals(approveItem.getApproveStatus())?"거절":"승인")+"완료 처리중 오류가 발생했습니다.", e);
+                    saveType(ApproveTypeEntity)  (2 usages found)
+                        770 throw ServiceException.of("이미 존재하는 타입코드 입니다.");
+                        782 throw ServiceException.of("이미 존재하는 타입코드로는 수정이 불가합니다.");
+            wne.common.his.approve.message  (1 usage found)
+                AbstractPushMessage.java  (1 usage found)
+                    getFixedLength(String, int, char, boolean)  (1 usage found)
+                        44 throw ServiceException.of("src 길이가 "+length+"를 넘습니다.");
+        wne-common-his.module.wne-common-his-auth.main  (118 usages found)
+            wne.common.his.auth.config  (2 usages found)
+                ResourceOwnerPasswordTokenGranter.java  (2 usages found)
+                    getPlainTextFromClient(String)  (2 usages found)
+                        201 throw ServiceException.of(e.getMessage());
+                        203 throw ServiceException.of("HIS-AUTH-0010", e);
+            wne.common.his.auth.controller  (31 usages found)
+                AdminInitialController.java  (3 usages found)
+                    process03()  (3 usages found)
+                        205 throw ServiceException.of("관리자 (ADMIN) 역할이 존재 하지 않습니다.");
+                        278 throw ServiceException.of("[process03] 컴포넌트 버튼 처리중 오류가 발생했습니다.\n\n"+msg);
+                        282 throw ServiceException.of("[process03] 컴포넌트 버튼 처리가 정상적으로 끝나지 않았습니다. ( 대상건수:"+menuItemList.size()+" , 정상처리건수:"+prcsCnt+" )");
+                AuthorityController.java  (2 usages found)
+                    createAuth(String[], UserDto)  (1 usage found)
+                        40 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                    update(List<String>, UserDto)  (1 usage found)
+                        66 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                OrgRoleController.java  (2 usages found)
+                    createRoleOrg(Long, List<Map<String, Object>>)  (1 usage found)
+                        92 throw ServiceException.of(
+                    updateOrgRole(Long, List<OrgRoleEntity>)  (1 usage found)
+                        127 throw ServiceException.of(
+                RoleMenuController.java  (1 usage found)
+                    save(Long, List<Long>)  (1 usage found)
+                        55 throw ServiceException.of(
+                RoleMenuItemController.java  (3 usages found)
+                    save(Long, List<Map<String, Object>>)  (1 usage found)
+                        105 throw ServiceException.of("메뉴명: " + menuItem.getItemName() + ", 역할코드: " + role.getRoleCode()
+                    update(Long, List<Map<String, Object>>)  (2 usages found)
+                        134 throw ServiceException.of("메뉴아이템 정보가 없습니다.");
+                        143 throw ServiceException.of("HomeMenuFlag 는 필수입력입니다.");
+                UiBtnController.java  (8 usages found)
+                    getPageBtnIdAuthByRoleList(String, Long, String, Boolean, Long[])  (1 usage found)
+                        329 throw ServiceException.of("해당 화면에 권한이 존재하지 않습니다.");
+                    getPageBtnIdAuthByRoleList(String, Long, Boolean, Long[])  (1 usage found)
+                        490 throw ServiceException.of("해당 화면에 권한이 존재하지 않습니다.");
+                    createCompPageId(UiComponentEntity)  (2 usages found)
+                        658 throw ServiceException.of("미등록 Component 입니다.");
+                        660 throw ServiceException.of("이미 페이지ID가 등록되어 있습니다.");
+                    getCompListByMenu(List<Map<String, Object>>)  (1 usage found)
+                        801 throw ServiceException.of("Component 미등록 건 존재\n 경로: " + path + "\n컴포넌트명: " + name);
+                    makeWorkFlowRel(String)  (1 usage found)
+                        949 throw ServiceException.of("워크플로우 컨테이너 컴포넌트의 버튼정보가 존재하지 않습니다.");
+                    saveBundleComponent(List<Map<String, Object>>)  (2 usages found)
+                        1206 throw ServiceException.of("[saveBundleComponent] 컴포넌트 버튼 처리중 오류가 발생했습니다.\n\n"+msg);
+                        1210 throw ServiceException.of("[saveBundleComponent] 컴포넌트 버튼 처리가 정상적으로 끝나지 않았습니다. ( 대상건수:"+compList.size()+" , 정상처리건수:"+prcsCnt+" )");
+                UiController.java  (2 usages found)
+                    checkAdminPage(String)  (2 usages found)
+                        197 throw ServiceException.of("세션정보가 없습니다.");
+                        201 throw ServiceException.of("접근권한이 없습니다.");
+                UserController.java  (5 usages found)
+                    updatePasswordCheck(String, Map<String, String>)  (3 usages found)
+                        255 throw ServiceException.of("변경 불가능한 계정입니다.");
+                        262 throw ServiceException.of("입력값이 충분하지 않습니다.");
+                        268 throw ServiceException.of("기존 비밀번호가 틀립니다.");
+                    updatePassword(String, Map<String, String>)  (1 usage found)
+                        290 throw ServiceException.of("변경 불가능한 계정입니다.");
+                    resetFailCount(String)  (1 usage found)
+                        308 throw ServiceException.of("변경 불가능한 계정입니다.");
+                UserOrgController.java  (3 usages found)
+                    createByUser(String, List<Long>)  (2 usages found)
+                        80 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                        90 throw ServiceException.of(
+                    createByOrg(Long, List<String>)  (1 usage found)
+                        124 throw ServiceException.of(
+                UserRoleController.java  (2 usages found)
+                    createByUser(String, List<Long>)  (2 usages found)
+                        55 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                        65 throw ServiceException.of(
+            wne.common.his.auth.controller.v1.org  (1 usage found)
+                UserOrgController.java  (1 usage found)
+                    createByOrg(Long, List<String>)  (1 usage found)
+                        111 throw ServiceException.of("조직명: " + org.getOrgName() + ", 사용자명: " + user.getName() + "\n조직에 해당 사용자가 이미 존재합니다");
+            wne.common.his.auth.controller.v1.role  (3 usages found)
+                RoleMenuItemController.java  (3 usages found)
+                    save(Long, List<Long>)  (1 usage found)
+                        87 throw ServiceException.of("메뉴명: " + menuItem.getItemName() + ", 역할코드: " + role.getRoleCode()
+                    update(Long, List<Map<String, Object>>)  (2 usages found)
+                        142 throw ServiceException.of("메뉴아이템 정보가 없습니다.");
+                        151 throw ServiceException.of("HomeMenuFlag 는 필수입력입니다.");
+            wne.common.his.auth.controller.v1.user  (11 usages found)
+                AuthorityController.java  (2 usages found)
+                    createAuth(String[], UserDto)  (1 usage found)
+                        41 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                    update(List<String>, UserDto)  (1 usage found)
+                        69 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                UserController.java  (5 usages found)
+                    updatePasswordCheck(String, Map<String, String>)  (3 usages found)
+                        174 throw ServiceException.of("변경 불가능한 계정입니다.");
+                        181 throw ServiceException.of("입력값이 충분하지 않습니다.");
+                        187 throw ServiceException.of("기존 비밀번호가 틀립니다.");
+                    updatePassword(String, Map<String, String>)  (1 usage found)
+                        210 throw ServiceException.of("변경 불가능한 계정입니다.");
+                    resetFailCount(String)  (1 usage found)
+                        229 throw ServiceException.of("변경 불가능한 계정입니다.");
+                UserOrgController.java  (2 usages found)
+                    createByUser(String, List<Long>)  (2 usages found)
+                        54 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                        64 throw ServiceException.of(
+                UserRoleController.java  (2 usages found)
+                    createByUser(String, List<Long>)  (2 usages found)
+                        44 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                        54 throw ServiceException.of(
+            wne.common.his.auth.service  (3 usages found)
+                ClientIpService.java  (2 usages found)
+                    getClientIp()  (2 usages found)
+                        47 throw ServiceException.of("사용자 IP 처리 중 오류가 발생했습니다.");
+                        56 throw ServiceException.of("이미 사용한 키 입니다.");
+                LoginSuccessEvent.java  (1 usage found)
+                    initialUserAccount(AuthenticationSuccessEvent)  (1 usage found)
+                        82 throw ServiceException.of("로그인 처리중 오류 발생");
+            wne.common.his.auth.service.impl  (66 usages found)
+                AdminInitialValidServiceImpl.java  (5 usages found)
+                    fixUIValidInfo(Map<String, String>)  (2 usages found)
+                        122 throw ServiceException.of("fixUIValidInfo 처리중 오류가 발생했습니다.", e.getCause() != null?e.getCause():e);
+                        127 throw ServiceException.of("처리가 불가능한 type 입니다. ("+typeParam+")");
+                    validBeforeFix(String)  (3 usages found)
+                        154 throw ServiceException.of("valid 정보가 없습니다.");
+                        163 throw ServiceException.of("정정해야할 정보가 없습니다. ("+type+")");
+                        167 throw ServiceException.of("valid count 정보가 없습니다.");
+                AuthCommonServiceImpl.java  (2 usages found)
+                    checkSession(String, boolean)  (2 usages found)
+                        22 throw ServiceException.of("세션정보가 없습니다.");
+                        30 throw ServiceException.of("세션정보가 올바르지 않습니다.");
+                AuthServiceImpl.java  (7 usages found)
+                    checkPwd(String, String)  (1 usage found)
+                        34 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                    updatePwd(String, String)  (1 usage found)
+                        43 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                    validId(String)  (3 usages found)
+                        64 throw ServiceException.of("아이디는 4글자 이상 입력해야 합니다.");
+                        77 throw ServiceException.of("아이디에 공백은 입력 불가합니다.");
+                        81 throw ServiceException.of("아아디는 영문 숫자만 입력해야 합니다.");
+                    validPassword(String)  (1 usage found)
+                        91 throw ServiceException.of("비밀번호는 대소문자와 특수문자 포함 8자 이상으로 입력하세요.");
+                    resetFailCount(String)  (1 usage found)
+                        131 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                OrgServiceImpl.java  (3 usages found)
+                    delete(List<Long>)  (1 usage found)
+                        145 throw ServiceException.of("존재하지 않는 조직 ID 입니다.");
+                    mapToDomain(OrgDto)  (1 usage found)
+                        162 throw ServiceException.of("존재하지 않는 상위 조직 ID 입니다.");
+                    getOneByOrgId(Long)  (1 usage found)
+                        198 throw ServiceException.of("존재하지 않는 조직 ID 입니다.");
+                RoleServiceImpl.java  (5 usages found)
+                    createRole(RoleDto)  (1 usage found)
+                        86 throw ServiceException.of("존재하지 않는 App명 입니다.");
+                    update(List<RoleDto>)  (1 usage found)
+                        103 throw ServiceException.of("존재하지 않는 역할 ID 입니다.");
+                    delete(List<Long>)  (1 usage found)
+                        126 throw ServiceException.of("존재하지 않는 역할 ID 입니다.");
+                    setRoleApps(RoleEntity, List<String>)  (2 usages found)
+                        162 throw ServiceException.of("존재하지 않는 App명 입니다.");
+                        172 throw ServiceException.of("존재하지 않는 App명 입니다.");
+                UiBtnServiceImpl.java  (4 usages found)
+                    createAllComponent(List<Map<String, Object>>)  (1 usage found)
+                        127 throw ServiceException.of("[버튼ID 중복 오류]\n\n" + errorMsg);
+                    saveBundleComponent(List<Map<String, Object>>)  (3 usages found)
+                        191 throw ServiceException.of("메뉴 ID를 가진 메뉴 정보가 없습니다. => " + map.get("itemId"));
+                        219 throw ServiceException.of("컴포넌트가 없습니다 => " + map.get("path") + " , " + map.get("name"));
+                        245 throw ServiceException.of("컴포넌트가 없습니다 => " + path + " , " + name);
+                UiServiceImpl.java  (14 usages found)
+                    mapMenuToDomain(UiMenuDto)  (1 usage found)
+                        217 throw ServiceException.of("존재하지 않는 App명 입니다.");
+                    mapMenuItemToDomain(UiMenuItemDto)  (1 usage found)
+                        277 throw ServiceException.of("존재하지 않는 메뉴 ID 입니다.");
+                    moveMenu(Map<String, Object>)  (2 usages found)
+                        322 throw ServiceException.of("menu id : "+menuId+" 에 대한 메뉴가 존재하지 않습니다.");
+                        328 throw ServiceException.of("menuItem id : "+item.get("id")+" 에 대한 메뉴아이템이 존재하지 않습니다.");
+                    saveMenuItemListByMenu(List<UiMenuItemDto>, Long)  (1 usage found)
+                        497 throw ServiceException.of("메뉴 경로가 없습니다.");
+                    updateMenuList(List<UiMenuDto>)  (1 usage found)
+                        511 throw ServiceException.of("메뉴명: " + dto.getMenuName() + "\n해당 메뉴가 존재하지 않습니다");
+                    updateMenuItemList(List<UiMenuItemDto>)  (1 usage found)
+                        531 throw ServiceException.of("메뉴명: " + dto.getItemName() + "\n해당 메뉴가 존재하지 않습니다");
+                    deleteMenuList(List<Long>)  (1 usage found)
+                        553 throw ServiceException.of("메뉴Id: " + menuId + "\n해당 메뉴가 존재하지 않습니다");
+                    deleteMenuItemList(List<Long>)  (1 usage found)
+                        568 throw ServiceException.of("메뉴Id: " + menuItemId + "\n해당 메뉴가 존재하지 않습니다");
+                    getPageEntity(String, String, boolean)  (2 usages found)
+                        606 throw ServiceException.of("페이지 권한이 없습니다. ("+pageId+"/"+pageAlias+")");
+                        617 throw ServiceException.of("페이지를 찾을 수 없습니다. ("+pageId+"/"+pageAlias+")");
+                    getPage(String, String, String, String, String)  (2 usages found)
+                        645 throw ServiceException.of("페이지를 찾을 수 없습니다. ("+name+")");
+                        647 throw ServiceException.of("페이지정보가 중복되어 있습니다. ("+name+")");
+                    getPageEntityWithMenuId(String)  (1 usage found)
+                        675 throw ServiceException.of("페이지를 찾을 수 없습니다. ("+menuItemId+")");
+                UiTempServiceImpl.java  (14 usages found)
+                    mapMenuToDomain(UiMenuDto)  (1 usage found)
+                        150 throw ServiceException.of("존재하지 않는 App명 입니다.");
+                    mapMenuItemToDomain(UiMenuItemDto)  (1 usage found)
+                        210 throw ServiceException.of("존재하지 않는 메뉴 ID 입니다.");
+                    moveMenu(Map<String, Object>)  (2 usages found)
+                        255 throw ServiceException.of("menu id : "+menuId+" 에 대한 메뉴가 존재하지 않습니다.");
+                        261 throw ServiceException.of("menuItem id : "+item.get("id")+" 에 대한 메뉴아이템이 존재하지 않습니다.");
+                    saveMenuItemListByMenu(List<UiMenuItemDto>, Long)  (1 usage found)
+                        346 throw ServiceException.of("메뉴 경로가 없습니다.");
+                    updateMenuList(List<UiMenuDto>)  (1 usage found)
+                        360 throw ServiceException.of("메뉴명: " + dto.getMenuName() + "\n해당 메뉴가 존재하지 않습니다");
+                    updateMenuItemList(List<UiMenuItemDto>)  (1 usage found)
+                        380 throw ServiceException.of("메뉴명: " + dto.getItemName() + "\n해당 메뉴가 존재하지 않습니다");
+                    deleteMenuList(List<Long>)  (1 usage found)
+                        402 throw ServiceException.of("메뉴Id: " + menuId + "\n해당 메뉴가 존재하지 않습니다");
+                    deleteMenuItemList(List<Long>)  (1 usage found)
+                        417 throw ServiceException.of("메뉴Id: " + menuItemId + "\n해당 메뉴가 존재하지 않습니다");
+                    getPageEntity(String, String, boolean)  (2 usages found)
+                        455 throw ServiceException.of("페이지 권한이 없습니다. ("+pageId+"/"+pageAlias+")");
+                        466 throw ServiceException.of("페이지를 찾을 수 없습니다. ("+pageId+"/"+pageAlias+")");
+                    getPage(String, String, String, String, String)  (2 usages found)
+                        494 throw ServiceException.of("페이지를 찾을 수 없습니다. ("+name+")");
+                        496 throw ServiceException.of("페이지정보가 중복되어 있습니다. ("+name+")");
+                    getPageEntityWithMenuId(String)  (1 usage found)
+                        524 throw ServiceException.of("페이지를 찾을 수 없습니다. ("+menuItemId+")");
+                UserServiceImpl.java  (6 usages found)
+                    getSessionInfo(String)  (1 usage found)
+                        125 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                    getSecureSessionInfo(String, String)  (1 usage found)
+                        194 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                    create(UserDto)  (1 usage found)
+                        344 throw ServiceException.of("이미 존재하는 사용자 로그인 아이디 입니다.");
+                    delete(List<Long>)  (1 usage found)
+                        354 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                    update(List<UserDto>)  (1 usage found)
+                        364 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                    getUserInfoByLoginId(String)  (1 usage found)
+                        378 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                UserTempServiceImpl.java  (6 usages found)
+                    getSessionInfo(String)  (1 usage found)
+                        130 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                    getSecureSessionInfo(String, String)  (1 usage found)
+                        199 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                    create(UserDto)  (1 usage found)
+                        344 throw ServiceException.of("이미 존재하는 사용자 로그인 아이디 입니다.");
+                    delete(List<Long>)  (1 usage found)
+                        354 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                    update(List<UserDto>)  (1 usage found)
+                        364 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                    getUserInfoByLoginId(String)  (1 usage found)
+                        378 throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+            wne.common.his.auth.service.v1.org.impl  (1 usage found)
+                OrgRoleServiceImpl.java  (1 usage found)
+                    saveAll(OrgRoleCommand)  (1 usage found)
+                        49 throw ServiceException.of("조직명: " + org.getOrgName() + ", 역할코드 " + role.getRoleCode() + "\n조직에 해당 역할이 이미 존재합니다");
+        wne-common-his.module.wne-common-his-noti.main  (34 usages found)
+            wne.common.his.noti.controller  (23 usages found)
+                FileController.java  (9 usages found)
+                    imgFile(String, String, HttpServletResponse)  (4 usages found)
+                        60 throw ServiceException.of("존재하지 않는 파일입니다.");
+                        80 throw ServiceException.of("존재하지 않는 파일입니다.");
+                        83 throw ServiceException.of("FileCopyUtils.copy => IOException 이 발생했습니다.");
+                        90 throw ServiceException.of("FileInputStream close => IOException 이 발생했습니다.");
+                    downloadFile(String, HttpServletResponse)  (4 usages found)
+                        127 throw ServiceException.of("존재하지 않는 파일입니다.");
+                        144 throw ServiceException.of("존재하지 않는 파일입니다.");
+                        146 throw ServiceException.of("FileCopyUtils.copy => IOException 이 발생했습니다.");
+                        153 throw ServiceException.of("FileInputStream close => IOException 이 발생했습니다.");
+                    getRootDirName()  (1 usage found)
+                        176 throw ServiceException.of("파일서버의 root 경로가 지정되어 있지 않습니다. (hcis.fileserver.root)");
+                NotiAuthController.java  (2 usages found)
+                    pdelete(Long)  (1 usage found)
+                        98 throw ServiceException.of("이미 삭제된 공지입니다.");
+                    addResource(Long, NotiResourcesEntity)  (1 usage found)
+                        120 throw ServiceException.of("ID:"+id+" 에 대한 공지정보가 없습니다.");
+                NotiController.java  (1 usage found)
+                    get(Long, String)  (1 usage found)
+                        50 throw ServiceException.of("해당 공지사항은 존재하지 않습니다.");
+                PushController.java  (9 usages found)
+                    makeGroup(Map<String, Object>)  (7 usages found)
+                        65 throw ServiceException.of("보내는 사람의 사용자 ID 가 필요합니다.");
+                        71 throw ServiceException.of("ID 는 2개 이상 지정되어야 합니다.");
+                        75 throw ServiceException.of("보내는 사람의 사용자 ID 는 userIdList 에 포함되어야 합니다.");
+                        81 throw ServiceException.of(userId+" 사용자가 중복 지정되었습니다.");
+                        91 throw ServiceException.of("DM 타입은 사용자가 두명만 지정되야 합니다.");
+                        94 throw ServiceException.of("그룹 타입은 DM:001/GM:002 만 유효합니다.");
+                        129 throw ServiceException.of("userIdList 에서 senderMember 를 찾을 수 없습니다.");
+                    deleteMsg(Long, Long)  (1 usage found)
+                        502 throw ServiceException.of("thisMember 정보를 찾을 수 없습니다.");
+                    sendMsg(Map<String, Object>)  (1 usage found)
+                        538 throw ServiceException.of("메시지를 보내는 사용자 ID 와 이름이 필요합니다.");
+                PushExtController.java  (1 usage found)
+                    sendMessage(Map<String, Object>)  (1 usage found)
+                        48 throw ServiceException.of("메시지 타입을 찾을 수 없습니다.");
+                PushHandler.java  (1 usage found)
+                    sendMessage(AbstractPushMessage, String...)  (1 usage found)
+                        30 throw ServiceException.of("메시지 수신자가 없습니다.");
+            wne.common.his.noti.controller.v1  (2 usages found)
+                NoticeAuthController.java  (2 usages found)
+                    pdelete(Long)  (1 usage found)
+                        100 throw ServiceException.of("이미 삭제된 공지입니다.");
+                    addResource(Long, NotiResourcesEntity)  (1 usage found)
+                        123 throw ServiceException.of("ID:"+id+" 에 대한 공지정보가 없습니다.");
+            wne.common.his.noti.message  (1 usage found)
+                AbstractPushMessage.java  (1 usage found)
+                    getFixedLength(String, int, char, boolean)  (1 usage found)
+                        44 throw ServiceException.of("src 길이가 "+length+"를 넘습니다.");
+            wne.common.his.noti.service  (4 usages found)
+                FileUploadAggregator.java  (1 usage found)
+                    upload(MultipartFile[], String, String, String)  (1 usage found)
+                        30 throw ServiceException.of("등록되지 않은 파일 타입입니다. ( "+type+" )");
+                ThumbnailUpdateService.java  (1 usage found)
+                    overwrite(File)  (1 usage found)
+                        20 throw ServiceException.of("HIS-COM-1001", new Object[]{f.getAbsolutePath()});
+                UploadFileWriteService.java  (2 usages found)
+                    writeFiles(List<FileUploadVo>)  (1 usage found)
+                        48 throw ServiceException.of("HIS-COM-1002", new Object[]{f.getAbsolutePath()});
+                    validate(List<FileUploadVo>)  (1 usage found)
+                        59 throw ServiceException.of("HIS-COM-1000", new Object[] {vo.getMultipartFile().getOriginalFilename(), vo.getMultipartFile().getSize(), properties.getMaxSize()});
+            wne.common.his.noti.service.impl  (4 usages found)
+                NotiServiceImpl.java  (4 usages found)
+                    saveNotiGroup(List<NotiGroupEntity>, boolean)  (3 usages found)
+                        242 if(StringUtils.isEmpty(noti.getNotiGroup())) throw ServiceException.of("유형을 입력하세요");
+                        243 if(StringUtils.isEmpty(noti.getNotiGroupText())) throw ServiceException.of(noti.getNotiGroup()+"의 유형명을 입력하세요.");
+                        246 throw ServiceException.of(noti.getNotiGroup()+" 은 이미 존재합니다.");
+                    findByIdAndIncreaseReadCount(Long)  (1 usage found)
+                        272 NotiEntity noti = notiRepository.findById(id).orElseThrow(() -> ServiceException.of("해당 공지사항은 존재하지 않습니다."));
+        wne-common-his.module.wne-common-his-staging.main  (9 usages found)
+            wne.common.his.staging.service.impl  (9 usages found)
+                StagingFlowServiceImpl.java  (1 usage found)
+                    save(List<StagingFlowDto>)  (1 usage found)
+                        145 throw ServiceException.of("STEDEF0015", stagingFlowDto.getPrevFlowName());
+                StagingManagementServiceImpl.java  (8 usages found)
+                    merge(String)  (4 usages found)
+                        480 throw ServiceException.of("STEDEF0001");
+                        484 throw ServiceException.of("STEDEF0018", stagingEntity.getStagingStatus().toString());
+                        496 throw ServiceException.of("STEDEF0011");
+                        533 throw ServiceException.of("STEDEF0011");
+                    saveApproveRequestInfo(String, Long)  (1 usage found)
+                        803 throw ServiceException.of("STEDEF0016");
+                    deleteApproveRequest(String)  (2 usages found)
+                        818 throw ServiceException.of("STEDEF0016");
+                        822 throw ServiceException.of("STEDEF0017");
+                    processApproveResult(String, Boolean)  (1 usage found)
+                        837 throw ServiceException.of("STEDEF0016");
+        wne-common-his.module.wne-common-his-transfer.main  (9 usages found)
+            wne.common.his.transfer.application.servcie  (9 usages found)
+                TransferService.java  (9 usages found)
+                    selectTransferTarget(String, List<CreateTransferTargetRequest>)  (2 usages found)
+                        67 MetaTransferEntity transfer = transferOptional.orElseThrow(() -> ServiceException.of("이관이 존재하지 않습니다!"));
+                        69 throw ServiceException.of("대기 상태의 이관이 아닙니다!");
+                    push(String, PushRequest)  (3 usages found)
+                        97 throw ServiceException.of("이관이 존재하지 않습니다!");
+                        101 throw ServiceException.of("Push 대상이 없습니다!");
+                        117 throw ServiceException.of("이관 목록에 포함된 메타 데이터가 이관 진행중입니다.");
+                    merge(String)  (4 usages found)
+                        151 throw ServiceException.of("이관이 존재하지 않습니다!");
+                        162 throw ServiceException.of("STEDEF0018", metaTransfer.get().getStatus().toString());
+                        172 throw ServiceException.of("STEDEF0011");
+                        181 throw ServiceException.of("STEDEF0011");
+        wne-common-his.module.wne-common-his-workflow.main  (81 usages found)
+            wne.common.his.workflow.service.impl  (81 usages found)
+                ActivityServiceImpl.java  (13 usages found)
+                    deleteActivity(List<Long>)  (2 usages found)
+                        212 throw ServiceException.of("존재하지않는 활동유형 id입니다.");
+                        217 throw ServiceException.of("삭제할 수 없는 활동 상태입니다.");
+                    updateActivity(List<ActivityDto>)  (6 usages found)
+                        233 throw ServiceException.of("존재하지않는 활동 id입니다.");
+                        251 throw ServiceException.of("완료상태인 작업의 활동의 상태를 변경 할 수 없습니다.");
+                        259 throw ServiceException.of("상태변경을 할 수 없습니다.");
+                        267 throw ServiceException.of("선행작업이 모두 완료되지 않았습니다.\n완료 후 상태 변경이 가능합니다.");
+                        280 throw ServiceException.of("선행작업이 모두 완료되지 않았습니다.\n완료 후 상태 변경이 가능합니다.");
+                        295 throw ServiceException.of("잘못된 메뉴 id 입니다.");
+                    findById(Long)  (1 usage found)
+                        486 throw ServiceException.of("존재하지않는 활동 id입니다.");
+                    moveWork(Long, List<Long>)  (1 usage found)
+                        520 throw ServiceException.of("존재하지않는  작업 id입니다.");
+                    mapToDomain(ActivityDto)  (3 usages found)
+                        530 throw ServiceException.of("활동유형의 필수값이 없습니다.");
+                        547 throw ServiceException.of("잘못된 작업유형 id 입니다.");
+                        556 throw ServiceException.of("잘못된 메뉴 id 입니다.");
+                ActivityStatusServiceImpl.java  (1 usage found)
+                    checkValidation(String, String, Long, Long, String)  (1 usage found)
+                        44 throw ServiceException.of(msg);
+                ActivityTypeServiceImpl.java  (6 usages found)
+                    saveActivityType(Long, List<ActivityTypeDto>)  (3 usages found)
+                        37 throw ServiceException.of("활동유형의 필수값이 없습니다.");
+                        49 throw ServiceException.of("잘못된 작업유형 id 입니다.");
+                        57 throw ServiceException.of("잘못된 메뉴 id 입니다.");
+                    deleteActivityType(List<Long>)  (1 usage found)
+                        127 throw ServiceException.of("존재하지않는 활동유형 id입니다.");
+                    updateActivityType(List<ActivityTypeDto>)  (2 usages found)
+                        141 throw ServiceException.of("존재하지않는 활동유형 id입니다.");
+                        155 throw ServiceException.of("잘못된 메뉴 id 입니다.");
+                ActivityTypeWithAuthServiceImpl.java  (1 usage found)
+                    deleteActTypeAuthority(List<Long>)  (1 usage found)
+                        114 throw ServiceException.of("잘못된 입력 입니다.");
+                ActivityTypeWithPrcdServiceImpl.java  (8 usages found)
+                    saveActTypePrcd(Long, List<ActivityTypePrcdDto>)  (5 usages found)
+                        77 throw ServiceException.of("잘못된 선행 업무입니다.");
+                        85 throw ServiceException.of("잘못된 업무구분 코드 입니다.");
+                        93 throw ServiceException.of("잘못된 선행 업무입니다.");
+                        104 throw ServiceException.of("잘못된 업무구분 코드 입니다.");
+                        109 throw ServiceException.of("잘못된 유형 선택 입니다.");
+                    deleteActTypePrcd(List<ActivityTypePrcdDto>)  (3 usages found)
+                        133 throw ServiceException.of("잘못된 입력 입니다.");
+                        142 throw ServiceException.of("잘못된 입력 입니다.");
+                        147 throw ServiceException.of("잘못된  유형 선택 입니다.");
+                ActivityWithAuthServiceImpl.java  (1 usage found)
+                    deleteActivityAuthority(List<Long>)  (1 usage found)
+                        198 throw ServiceException.of("잘못된 입력 입니다.");
+                ActivityWithPrcdServiceImpl.java  (8 usages found)
+                    saveActivityPrcd(Long, List<ActivityPrcdDto>)  (5 usages found)
+                        93 throw ServiceException.of("잘못된 선행 업무입니다.");
+                        101 throw ServiceException.of("잘못된 업무구분 코드 입니다.");
+                        109 throw ServiceException.of("잘못된 선행 업무입니다.");
+                        121 throw ServiceException.of("잘못된 업무구분 코드 입니다.");
+                        126 throw ServiceException.of("잘못된 유형 선택 입니다.");
+                    deleteActPrcd(List<ActivityPrcdDto>)  (3 usages found)
+                        145 throw ServiceException.of("잘못된 입력 입니다.");
+                        154 throw ServiceException.of("잘못된 입력 입니다.");
+                        159 throw ServiceException.of("잘못된  유형 선택 입니다.");
+                CopyActivityServiceImpl.java  (2 usages found)
+                    makeCopyActivityName(String, Long, Integer)  (1 usage found)
+                        51 throw ServiceException.of("존재하지않는 작업 ID입니다. ID::" + workId);
+                    copyByActivity(List<Long>)  (1 usage found)
+                        75 throw ServiceException.of("존재하지않는 활동 ID입니다. ID::" + activityId);
+                CopyWorkServiceImpl.java  (4 usages found)
+                    mapToWorkTypeDomain(CopyWorkDto)  (2 usages found)
+                        127 throw ServiceException.of("존재하지않는 작업유형 id입니다.");
+                        143 throw ServiceException.of("존재하지않는 상위작업 id입니다.");
+                    mapToWorkDomain(CopyWorkDto)  (2 usages found)
+                        259 throw ServiceException.of("존재하지않는 작업 id입니다.");
+                        279 throw ServiceException.of("존재하지않는 상위작업 id입니다.");
+                ExternalServiceImpl.java  (4 usages found)
+                    checkPrcd(ActivityEntity)  (2 usages found)
+                        237 throw ServiceException.of("선행활동이 모두 완료되지 않았습니다.\n완료 후 상태 변경이 가능합니다.");
+                        244 throw ServiceException.of("선행작업이 모두 완료되지 않았습니다.\n완료 후 상태 변경이 가능합니다.");
+                    saveActivity(Long, List<Map<String, Object>>)  (2 usages found)
+                        260 throw ServiceException.of("활동명은 필수입니다.");
+                        265 throw ServiceException.of("관련App명은 필수입니다.");
+                MyWorkServiceImpl.java  (1 usage found)
+                    findById(Long)  (1 usage found)
+                        364 throw ServiceException.of("존재하지않는 작업 id입니다.");
+                StatusServiceImpl.java  (6 usages found)
+                    isDeleteable(String)  (1 usage found)
+                        59 throw ServiceException.of("존재하지 않는 상태코드입니다.[" + code + "]");
+                    isMoveable(String)  (1 usage found)
+                        80 throw ServiceException.of("존재하지 않는 상태코드입니다.[" + code + "]");
+                    update(List<StatusDto>)  (2 usages found)
+                        157 throw ServiceException.of("상태 진행 순서 정합성이 맞지 않습니다. \n(진행전: 0, 완료:999, 그외: 1~998)");
+                        161 throw ServiceException.of("존재하지 않는 상태코드입니다.");
+                    delete(List<String>)  (2 usages found)
+                        177 throw ServiceException.of("해당 코드를 사용하고 있는 작업 및 활동이 존재합니다. \n삭제 할 수 없습니다. (코드: " + code + ")");
+                        181 throw ServiceException.of("존재하지 않는 상태코드입니다.");
+                WorkflowAuthServiceImpl.java  (2 usages found)
+                    addWorkflowAuth(WorkflowAuthTypeEnum, String)  (2 usages found)
+                        137 throw ServiceException.of("잘못된 입력 입니다.");
+                        141 throw ServiceException.of("존재하지않는 권한 입니다.");
+                WorkServiceImpl.java  (11 usages found)
+                    saveWork(WorkDto)  (2 usages found)
+                        57 throw ServiceException.of("작업명은 필수 입력값입니다.");
+                        85 throw ServiceException.of("잘못된 상위 작업입니다.");
+                    deleteWork(List<Long>)  (1 usage found)
+                        114 throw ServiceException.of("삭제할 수 없는 활동 상태입니다.=> 활동ID:" + activity.getId());
+                    updateWork(List<WorkDto>)  (2 usages found)
+                        130 throw ServiceException.of("존재하지않는 작업 id입니다.");
+                        137 throw ServiceException.of("존재하지않는 상위작업 id입니다.");
+                    checkActivityClosed(Long)  (1 usage found)
+                        182 throw ServiceException.of("작업에 존재하는 활동의 상태가 모두 완료일 때만 가능합니다.");
+                    checkChildWorkClosed(Long)  (1 usage found)
+                        191 throw ServiceException.of("하위 작업의 상태가 모두 완료일 때만 가능합니다.");
+                    updateParentWork(Long, Long)  (2 usages found)
+                        266 throw ServiceException.of("존재하지않는 작업 id입니다.");
+                        275 throw ServiceException.of("존재하지않는 상위 작업 id입니다.");
+                    findById(Long)  (1 usage found)
+                        287 throw ServiceException.of("존재하지않는 작업 id입니다.");
+                    updateFavorite(Long, Boolean)  (1 usage found)
+                        302 throw ServiceException.of("존재하지않는 작업 id입니다.");
+                WorkTypeAuthorityServiceImpl.java  (1 usage found)
+                    mapToDomain(WorkTypeAuthorityDto)  (1 usage found)
+                        117 throw ServiceException.of("존재하지않는 WorkTypeId 입니다.");
+                WorkTypeServiceImpl.java  (3 usages found)
+                    deleteWorkType(List<Long>)  (1 usage found)
+                        69 throw ServiceException.of("존재하지않는 작업유형 id입니다.");
+                    updateWorkType(List<WorkTypeDto>)  (1 usage found)
+                        84 throw ServiceException.of("존재하지않는 작업유형 id입니다.");
+                    getPrcdStructure(Long)  (1 usage found)
+                        111 throw ServiceException.of("존재하지않는 작업유형 id입니다.");
+                WorkWithAuthServiceImpl.java  (9 usages found)
+                    hasAuthorityByLoginUser(Long, WorkAuthorityTypeEnum)  (1 usage found)
+                        116 throw ServiceException.of("존재하지않는 WorkId 입니다.");
+                    saveAuthList(Long, List<WorkAuthDto>)  (1 usage found)
+                        139 throw ServiceException.of("권한을 수정할 수 있는 사용자가 아닙니다.");
+                    deleteAuthList(Long, List<Long>)  (1 usage found)
+                        157 throw ServiceException.of("권한을 수정할 수 있는 사용자가 아닙니다.");
+                    mapToDomain(WorkAuthDto)  (1 usage found)
+                        200 throw ServiceException.of("존재하지않는 WorkId 입니다.");
+                    findUserListByWork(Long)  (1 usage found)
+                        214 throw ServiceException.of("존재하지않는 WorkId 입니다.");
+                    getUserAuthorityDetail(Long, String, List<ActivityDto>)  (1 usage found)
+                        328 throw ServiceException.of("존재하지않는 WorkId 입니다.");
+                    saveAdminAuth(String, Long, Boolean)  (3 usages found)
+                        366 throw ServiceException.of("권한을 수정할 수 있는 사용자가 아닙니다.");
+                        376 throw ServiceException.of("존재하지않는 사용자 입니다.\n담당자에게 문의하세요.");
+                        389 throw ServiceException.of("존재하지않는 작업ID 입니다.\n담당자에게 문의하세요.");
+    Usage in comments  (41 usages found)
+        wne-common-his.module.wne-common-his-auth.main  (30 usages found)
+            wne.common.his.auth.controller  (4 usages found)
+                BusinessDivisionController.java  (2 usages found)
+                    211 			throw ServiceException.of("세션정보가 없습니다.");
+                    219 			throw ServiceException.of("세션정보가 올바르지 않습니다.");
+                UserController.java  (2 usages found)
+                    486 			throw ServiceException.of("세션정보가 없습니다.");
+                    494 			throw ServiceException.of("세션정보가 올바르지 않습니다.");
+            wne.common.his.auth.controller.v1.business  (2 usages found)
+                BusinessDivisionController.java  (2 usages found)
+                    210 			throw ServiceException.of("세션정보가 없습니다.");
+                    218 			throw ServiceException.of("세션정보가 올바르지 않습니다.");
+            wne.common.his.auth.controller.v1.menu.component  (8 usages found)
+                UiBtnController.java  (8 usages found)
+                    267 //			throw ServiceException.of("해당 화면에 권한이 존재하지 않습니다.");
+                    427 //			throw ServiceException.of("해당 화면에 권한이 존재하지 않습니다.");
+                    574 //			throw ServiceException.of("미등록 Component 입니다.");
+                    576 //			throw ServiceException.of("이미 페이지ID가 등록되어 있습니다.");
+                    716 //				throw ServiceException.of("Component 미등록 건 존재\n 경로: " + path + "\n컴포넌트명: " + name);
+                    856 //				throw ServiceException.of("워크플로우 컨테이너 컴포넌트의 버튼정보가 존재하지 않습니다.");
+                    1109 //			throw ServiceException.of("[saveBundleComponent] 컴포넌트 버튼 처리중 오류가 발생했습니다.\n\n"+msg);
+                    1113 //			throw ServiceException.of("[saveBundleComponent] 컴포넌트 버튼 처리가 정상적으로 끝나지 않았습니다. ( 대상건수:"+compList.size()+" , 정상처리건수:"+prcsCnt+" )");
+            wne.common.his.auth.controller.v1.menuauth  (2 usages found)
+                UiController.java  (2 usages found)
+                    159 //			throw ServiceException.of("세션정보가 없습니다.");
+                    163 //			throw ServiceException.of("접근권한이 없습니다.");
+            wne.common.his.auth.controller.v1.org  (2 usages found)
+                UserOrgController.java  (2 usages found)
+                    149 //			throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                    159 //				throw ServiceException.of(
+            wne.common.his.auth.controller.v1.role  (4 usages found)
+                UiController.java  (2 usages found)
+                    168 //			throw ServiceException.of("세션정보가 없습니다.");
+                    172 //			throw ServiceException.of("접근권한이 없습니다.");
+                UserRoleController.java  (2 usages found)
+                    48 //			throw ServiceException.of("존재하지 않는 사용자 로그인 아이디 입니다.");
+                    58 //				throw ServiceException.of(
+            wne.common.his.auth.controller.v1.user  (3 usages found)
+                UserController.java  (2 usages found)
+                    524 			throw ServiceException.of("세션정보가 없습니다.");
+                    532 			throw ServiceException.of("세션정보가 올바르지 않습니다.");
+                UserOrgController.java  (1 usage found)
+                    135 //					throw ServiceException.of(
+            wne.common.his.auth.service.impl  (3 usages found)
+                AuthServiceImpl.java  (3 usages found)
+                    validId(String)  (1 usage found)
+                        71 //			throw ServiceException.of("아아디의 첫글자는 영문으로 입력해야 합니다.");
+                    validPassword(String)  (2 usages found)
+                        103 //				throw ServiceException.of("비밀번호에 공백은 입력 불가합니다.");
+                        117 //			throw ServiceException.of("비밀번호는 대소문자와 특수문자 포함 8자 이상으로 입력하세요.");
+            wne.common.his.auth.service.v1.role.buttonauth.impl  (2 usages found)
+                RoleSubMenuButtonAuthServiceImpl.java  (2 usages found)
+                    258 ////      throw ServiceException.of("해당 화면에 권한이 존재하지 않습니다.");
+                    466 //        throw ServiceException.of("워크플로우 컨테이너 컴포넌트의 버튼정보가 존재하지 않습니다.");
+        wne-common-his.module.wne-common-his-electron.main  (1 usage found)
+            wne.common.his.electron.service.impl  (1 usage found)
+                ElectronUpdateServiceImpl.java  (1 usage found)
+                    loadHash(String, String)  (1 usage found)
+                        102 //throw ServiceException.of(path + "경로에 " + fileName + " 파일이 존재하지 않습니다.");
+        wne-common-his.module.wne-common-his-noti.main  (6 usages found)
+            wne.common.his.noti.controller  (6 usages found)
+                FileController.java  (5 usages found)
+                    233 //			throw ServiceException.of("등록되지 않은 파일 타입입니다. ( "+type+" )");
+                    239 //				throw ServiceException.of("파일 최대 크기 ( "+getMaxsize()+" ) 를 초과했습니다.");
+                    284 //				throw ServiceException.of("saveFile.createNewFile => IOException 이 발생했습니다.");
+                    292 //				throw ServiceException.of("FileCopyUtils.copy => IOException 이 발생했습니다.");
+                    302 //					throw ServiceException.of("Builder.toFile => IOException 이 발생했습니다.");
+                PushController.java  (1 usage found)
+                    sendMsg(Map<String, Object>)  (1 usage found)
+                        547 //throw ServiceException.of("메시지를 받을 사용자 ID 가 필요합니다.");
+        wne-common-his.module.wne-common-his-workflow.main  (4 usages found)
+            wne.common.his.workflow.service.impl  (4 usages found)
+                WorkServiceImpl.java  (1 usage found)
+                    deleteWork(List<Long>)  (1 usage found)
+                        106 //				throw ServiceException.of("존재하지않는 작업 id입니다.");
+                WorkTypeAuthorityServiceImpl.java  (2 usages found)
+                    saveAuthList(Long, List<WorkTypeAuthorityDto>)  (1 usage found)
+                        71 //			throw ServiceException.of("권한을 수정할 수 있는 사용자가 아닙니다.");
+                    deleteAuthList(Long, List<Long>)  (1 usage found)
+                        89 //			throw ServiceException.of("권한을 수정할 수 있는 사용자가 아닙니다.");
+                WorkTypeServiceImpl.java  (1 usage found)
+                    saveWorkType(List<WorkTypeDto>)  (1 usage found)
+                        40 //				throw ServiceException.of("작업유형의 필수값이 없습니다.");

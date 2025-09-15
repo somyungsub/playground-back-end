@@ -1,4 +1,4 @@
 dependencies {
-    implementation project(':prototype-hexagonal:config:redis-config')
-    implementation project(':prototype-hexagonal:module:membership')
+    implementation project(':config:redis-config')
+    implementation project(':module:membership')
 }

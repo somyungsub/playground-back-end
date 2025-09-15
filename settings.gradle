@@ -4,42 +4,5 @@ include 'dev-diary-log'
 include 'dev-diary-log:spring-boot'
 include 'dev-diary-log:library'
 
-include 'prototype-hexagonal'
-include 'prototype-hexagonal:bootstrap'
-include 'prototype-hexagonal:bootstrap:node-server-app'
-include 'prototype-hexagonal:module'
-include 'prototype-hexagonal:module-test'
-include 'prototype-hexagonal:config'
-
-// 최상위 'module' 디렉토리에서 시작하여 모듈 포함
-includeModulesRecursively(file("${rootDir}/prototype-hexagonal/module"))
-includeModulesRecursively(file("${rootDir}/prototype-hexagonal/module-test"))
-includeModulesRecursively(file("${rootDir}/prototype-hexagonal/config"))
-includeModulesRecursively(file("${rootDir}/prototype-hexagonal/bootstrap"))
-
-// 모듈을 재귀적으로 찾아 포함시키는 함수
-void includeModulesRecursively(File dir) {
-    dir.eachDir { subDir ->
-        if (subDir.isDirectory()) {
-            if (subDir.name != "src" && new File(subDir, "build.gradle").exists()) {
-                // 모듈로 간주하고 include
-                String path = subDir.path.replace("${rootDir}" + File.separator, "").replace(File.separator, ':')
-                include path
-                // 하위 디렉토리에 대해서도 탐색
-                includeModulesRecursively(subDir)
-            }
-        }
-    }
-}
-
-//include 'bootstrap:router-db-app'
-//findProject(':bootstrap:router-db-app')?.name = 'router-db-app'
-//include 'module:router-db'
-//findProject(':module:router-db')?.name = 'router-db'
-//include 'config:router-config'
-//findProject(':config:router-config')?.name = 'router-config'
-//include 'module-test:router-test'
-//findProject(':module-test:router-test')?.name = 'router-test'
-
-
-
+includeBuild("prototype-hexagonal")
+includeBuild("spring-ai")

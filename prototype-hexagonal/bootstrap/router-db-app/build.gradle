@@ -1,7 +1,7 @@
 dependencies {
     // 설정모듈
-    implementation project(':prototype-hexagonal:config:router-config')
+    implementation project(':config:router-config')
 
     // 실행모듈
-    implementation project(':prototype-hexagonal:module-test:router-test')
+    implementation project(':module-test:router-test')
 }
