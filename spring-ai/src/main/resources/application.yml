@@ -2,17 +2,21 @@ server:
   port: 9090
 
 spring:
+  application:
+    name: chat bot!
+    cli: false # true -> chat bot, @see SimpleChatConfig 확인
   ai:
     model:          # 여러 Chat 모델 사용시 auto-configurations 에서 사용할 모델 설정 필요 ex: openai, ollama
-      chat: ollama  # or openai, ollama
+      chat: openai  # or openai, ollama
     openai:
+#      api-key: ${OPENAI_API_KEY}   # 환경변수로 관리 권장
       api-key: ${OPENAI_API_KEY}   # 환경변수로 관리 권장
       chat:
         completions-path: /chat/completions
         base-url: https://models.github.ai/inference
         options:
           model: openai/gpt-4.1
-#          temperature: 0.7
+#          temperature: 0.7 # 응답의 창의성 여부, 0~1, 낮을수록 사실기반, 높을수록 창의적+거짓확률높음
     ollama:
       chat:
         options:
@@ -20,3 +24,11 @@ spring:
       init:
         pull-model-strategy: when_missing # when_missing, always, never 설정
 #      base-url: http://localhost:11434
+logging:
+  level:
+    org:
+      springframework:
+        ai:
+          chat:
+            client:
+              advisor: debug
