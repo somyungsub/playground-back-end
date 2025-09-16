@@ -14,8 +14,8 @@ class AiServiceMulti implements AiService {
   private final ChatClient chatClient;
 
   public AiServiceMulti(
-          @Qualifier("openAiChatModel") ChatModel chatModel
-//          @Qualifier("ollamaChatModel") ChatModel chatModel
+//          @Qualifier("openAiChatModel") ChatModel chatModel
+          @Qualifier("ollamaChatModel") ChatModel chatModel
   ) {
 //    this.openAiClient = ChatClient.builder(openAiChatModel).build();
     this.chatClient = ChatClient.builder(chatModel).build();

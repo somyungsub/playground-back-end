@@ -3,12 +3,15 @@ server:
 
 spring:
   application:
-    name: chat bot!
-    cli: false # true -> chat bot, @see SimpleChatConfig 확인
+    name: Spring AI !!!
   ai:
     model:          # 여러 Chat 모델 사용시 auto-configurations 에서 사용할 모델 설정 필요 ex: openai, ollama
-      chat: openai  # or openai, ollama
+      chat: ollama  # or openai, ollama
+      embedding: ollama
     openai:
+      embedding:
+        options:
+          model: bge-m3
       api-key: ${OPENAI_API_KEY}   # 환경변수로 관리 권장
       chat:
         completions-path: /chat/completions
@@ -31,3 +34,11 @@ logging:
           chat:
             client:
               advisor: debug
+
+app:
+  cli:
+    chat:
+      enabled: false     # SimpleChatConfig 확인
+    rag:
+      enabled: false    # RagChatConfig 확인
+    filter-expression: ''

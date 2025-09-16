@@ -18,8 +18,8 @@ class ChatServiceImpl implements ChatService {
 
   private final ChatClient chatClient;
   public ChatServiceImpl(
-          @Qualifier("openAiChatModel") ChatModel chatModel,
-//          @Qualifier("ollamaChatModel") ChatModel chatModel,
+//          @Qualifier("openAiChatModel") ChatModel chatModel,
+          @Qualifier("ollamaChatModel") ChatModel chatModel,
           Advisor[] advisors
   ) {
     this.chatClient = ChatClient

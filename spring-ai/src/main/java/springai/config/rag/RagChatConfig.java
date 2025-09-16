@@ -1,50 +1,27 @@
-package springai.config;
+package springai.config.rag;
 
 import ch.qos.logback.classic.LoggerContext;
 import org.slf4j.LoggerFactory;
-import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
-import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
-import org.springframework.ai.chat.memory.ChatMemory;
-import org.springframework.ai.chat.memory.MessageWindowChatMemory;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import springai.service.ChatService;
+import springai.service.RAGService;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 @Configuration
-public class SimpleChatConfig {
+public class RagChatConfig {
 
-  @Bean
-  SimpleLoggerAdvisor simpleLoggerAdvisor() {
-    return new SimpleLoggerAdvisor();
-  }
-
-  @Bean
-  ChatMemory chatMemory() {
-    return MessageWindowChatMemory
-            .builder()
-            .maxMessages(10)
-//            .chatMemoryRepository()
-            .build();
-  }
-
-  @Bean
-  MessageChatMemoryAdvisor messageChatMemoryAdvisor() {
-    return MessageChatMemoryAdvisor
-            .builder(chatMemory())
-            .build();
-  }
-
-  @ConditionalOnProperty(prefix = "app.cli.chat", name = "enabled", havingValue = "true")
+  @ConditionalOnProperty(prefix = "app.cli.rag", name = "enabled", havingValue = "true")
   @Bean
   CommandLineRunner commandLineRunner(
           @Value("${spring.application.name}") String applicationName,
-          ChatService chatService
+          RAGService chatService,
+          @Value("${app.cli.filter-expression:''}") String filterExpression
   ) {
 
     return args -> {
@@ -57,7 +34,7 @@ public class SimpleChatConfig {
           System.out.print("\n User >> ");
           String message = scanner.nextLine();
           Prompt prompt = Prompt.builder().content(message).build();
-          chatService.stream(prompt, "cli")
+          chatService.stream(prompt, "cli", filterExpression)
                   .doFirst(() -> System.out.print("\n Assistant: "))
                   .doOnNext(System.out::print)
                   .doOnComplete(System.out::println)
@@ -66,4 +43,5 @@ public class SimpleChatConfig {
       }
     };
   }
+
 }
