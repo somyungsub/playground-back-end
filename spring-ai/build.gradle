@@ -21,7 +21,8 @@ repositories {
 }
 
 dependencies {
-    implementation "io.netty:netty-resolver-dns-native-macos:4.1.79.Final:osx-aarch_64"
+    // 공통 라이브러리
+    implementation "playground-back-end:common-dependencies:1.0.0-SNAPSHOT"
 
     // Spring Boot
     implementation "org.springframework.boot:spring-boot-starter-webflux"
@@ -36,9 +37,8 @@ dependencies {
     implementation "org.springframework.ai:spring-ai-client-chat"
     implementation "org.springframework.ai:spring-ai-starter-model-openai"
     implementation "org.springframework.ai:spring-ai-starter-model-ollama"
-
-    // Jackson
-    implementation "com.fasterxml.jackson.core:jackson-databind"
+    implementation "org.springframework.ai:spring-ai-advisors-vector-store"
+    implementation "org.springframework.ai:spring-ai-tika-document-reader"
 
     // Lombok
     compileOnly "org.projectlombok:lombok:1.18.34"

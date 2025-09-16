@@ -4,5 +4,6 @@ include 'dev-diary-log'
 include 'dev-diary-log:spring-boot'
 include 'dev-diary-log:library'
 
+includeBuild("common-dependencies")
 includeBuild("prototype-hexagonal")
 includeBuild("spring-ai")

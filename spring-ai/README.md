@@ -26,7 +26,7 @@
 - https://github.com/marketplace/models
 - 모델선택 > use this model > language(java, python, ...), sdk 선택 > get developer key, or create personal access token
   - Model 활성화 > 유효기간 등 
-- api-key : 토큰키 입력ㅎㅎ
+  - api-key : 토큰키 입력ㅎㅎ
 
 ### ollama
 - 로컬에 ollama 설치필요
