@@ -40,7 +40,7 @@ public class SimpleChatConfig {
             .build();
   }
 
-  @ConditionalOnProperty(prefix = "app.cli.chat", name = "enabled", havingValue = "true")
+  @ConditionalOnProperty(prefix = "app.cli", name = "chat-enabled", havingValue = "true")
   @Bean
   CommandLineRunner commandLineRunner(
           @Value("${spring.application.name}") String applicationName,

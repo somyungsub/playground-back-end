@@ -1,4 +1,4 @@
-package springai.config.rag;
+package springai.config;
 
 import ch.qos.logback.classic.LoggerContext;
 import org.slf4j.LoggerFactory;
@@ -10,13 +10,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springai.service.RAGService;
 
-import java.util.Optional;
 import java.util.Scanner;
 
 @Configuration
 public class RagChatConfig {
 
-  @ConditionalOnProperty(prefix = "app.cli.rag", name = "enabled", havingValue = "true")
+  @ConditionalOnProperty(prefix = "app.cli", name = "rag-enabled", havingValue = "true")
   @Bean
   CommandLineRunner commandLineRunner(
           @Value("${spring.application.name}") String applicationName,

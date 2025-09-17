@@ -267,5 +267,18 @@
   - FileDocumentWriter
   - VectorStore
 
-
-
+### VectorStore
+- OpenSearch 사용
+  - 엘라스틱서치 기반 
+- 엘라스틱서치 사용
+- 도커활용
+```shell
+# 인증없이 접속할 수 있도록 실행
+$ docker run -d --name local-elasticsearch \
+  -p 9200:9200 \
+  -e "discovery.type=single-node" \
+  -e "xpack.security.enabled=false" \
+  -e "xpack.security.http.ssl.enabled=false" \
+  -e "ES_JAVA_OPTS=-Xms512m -Xmx512m" \
+  docker.elastic.co/elasticsearch/elasticsearch:8.18.3
+```

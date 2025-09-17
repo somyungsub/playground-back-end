@@ -2,8 +2,12 @@ server:
   port: 9090
 
 spring:
+  elasticsearch:
+    uris: http://localhost:9200
+#    username:
+#    password:
   application:
-    name: Spring AI !!!
+    name: spring-ai
   ai:
     model:          # 여러 Chat 모델 사용시 auto-configurations 에서 사용할 모델 설정 필요 ex: openai, ollama
       chat: ollama  # or openai, ollama
@@ -26,8 +30,18 @@ spring:
       init:
         pull-model-strategy: when_missing # when_missing, always, never 설정
 #      base-url: http://localhost:11434
+    vectorstore:
+      elasticsearch:
+        initialize-schema: true
+        index-name: spring-ai-document-
+        dimensions: 1024
+        similarity: cosine
 logging:
+#  file:
+#    path: log
+#    name: log/${spring.application.name}.log
   level:
+    root: info
     org:
       springframework:
         ai:
@@ -36,9 +50,11 @@ logging:
               advisor: debug
 
 app:
+  pipeline-init: true
+  vector-store-in-memory-enabled: false
+  print-enabled: true
+  document-location: classpath:fastcampus-springai.pdf
   cli:
-    chat:
-      enabled: false     # SimpleChatConfig 확인
-    rag:
-      enabled: false    # RagChatConfig 확인
+    chat-enabled: false     # SimpleChatConfig 확인
+    rag-enabled: true    # RagChatConfig 확인
     filter-expression: ''
