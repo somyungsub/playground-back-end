@@ -3,3 +3,4 @@ rootProject.name = "spring-ai"
 include 'basic'
 include 'mcp'
 include 'mcp:server'
+include 'mcp:client'

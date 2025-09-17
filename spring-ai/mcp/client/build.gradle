@@ -37,9 +37,8 @@ dependencies {
     implementation "org.springframework.ai:spring-ai-client-chat"
     implementation "org.springframework.ai:spring-ai-starter-model-openai"
     implementation "org.springframework.ai:spring-ai-starter-model-ollama"
-    implementation "org.springframework.ai:spring-ai-starter-mcp-server"
-    implementation "org.springframework.ai:spring-ai-starter-mcp-server-webflux"
-    implementation "org.springframework.ai:spring-ai-starter-mcp-server-webmvc"
+    implementation "org.springframework.ai:spring-ai-starter-mcp-client"
+    implementation "org.springframework.ai:spring-ai-starter-mcp-client-webflux"
 
     // Lombok
     compileOnly "org.projectlombok:lombok:1.18.34"
