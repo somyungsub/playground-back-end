@@ -1,0 +1,5 @@
+rootProject.name = "spring-ai"
+
+include 'basic'
+include 'mcp'
+include 'mcp:server'

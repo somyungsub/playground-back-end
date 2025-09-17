@@ -1,0 +1,52 @@
+plugins {
+    id "org.springframework.boot" version "${springBootVersion}"
+    id "io.spring.dependency-management" version "${springManageVersion}"
+    id "java"
+}
+
+group = "playground-back-end"
+version = "1.0.0-SNAPSHOT"
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/milestone" }
+    // snapshot 은 필요할 때만 추가
+    // maven { url "https://repo.spring.io/snapshot" }
+}
+
+dependencies {
+    // 공통 라이브러리
+    implementation "playground-back-end:common-dependencies:1.0.0-SNAPSHOT"
+
+    // Spring Boot
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.boot:spring-boot-starter-webflux"
+    implementation "org.springframework.boot:spring-boot-starter"
+    implementation "org.springframework.boot:spring-boot-starter-validation"
+
+    // Spring AI BOM (1.0.2)
+    implementation platform("org.springframework.ai:spring-ai-bom:1.0.2")
+
+    // Spring AI 모듈 (1.0.2 BOM 기준)
+//    implementation "org.springframework.ai:spring-ai-core"
+    implementation "org.springframework.ai:spring-ai-client-chat"
+    implementation "org.springframework.ai:spring-ai-starter-model-openai"
+    implementation "org.springframework.ai:spring-ai-starter-model-ollama"
+    implementation "org.springframework.ai:spring-ai-starter-mcp-client"
+    implementation "org.springframework.ai:spring-ai-starter-mcp-server"
+
+    // Lombok
+    compileOnly "org.projectlombok:lombok:1.18.34"
+    annotationProcessor "org.projectlombok:lombok:1.18.34"
+    testCompileOnly "org.projectlombok:lombok:1.18.34"
+    testAnnotationProcessor "org.projectlombok:lombok:1.18.34"
+
+    // Test
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+}
