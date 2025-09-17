@@ -12,11 +12,13 @@ public class AppProperty {
   private final boolean vectorStoreInMemoryEnabled;
   private final boolean printEnabled;
   private final String documentLocation;
+  private final String defaultSystemPrompt;
   private final CliProperty cli;
 
   public record CliProperty(
           boolean chatEnabled,
           boolean ragEnabled,
+          boolean toolEnabled,
           String filterExpression
   ) { }
 }

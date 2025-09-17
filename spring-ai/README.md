@@ -282,3 +282,53 @@ $ docker run -d --name local-elasticsearch \
   -e "ES_JAVA_OPTS=-Xms512m -Xmx512m" \
   docker.elastic.co/elasticsearch/elasticsearch:8.18.3
 ```
+
+## Tool Calling
+- AI 모델이 외부 시스템과 상호작용 할 수 있도록 하는 기능
+- 주요용도
+  - 정보검색
+  - 작없행
+- 필요한것
+  - AI application 에 Tool에 대응하는 기능 개발
+  - AI 모델이 이해 할 수 있는 Tool 에 대응하는 Tool Spec 정의
+- Adviser 에서 RAG 나 API를 호출하는 것 과 다른 것인가?
+  - 호출 요청을 AI가 함
+    - 다른 Tool을 호출
+    - 사용자에게 직접 질문으로 요청
+- 파이썬 -> LangChain의 Tool / Agent 과 유사
+
+### Tool Specification
+- LLM이 외부함수 or API, 도구 등을 호출할 수 있도록 함수의 정의와 입력파라미터, 사용목적을 JSON Schema 형태로 명확하게 기술하는 방식
+- 구성요소 
+  - type: 도구의 형태
+  - name: 도구의 이름
+  - description: 도구의 목적 및 설명
+  - parameters: 입력값의 이름,타입,필수 여부 등
+  - 모델별 상이할 수 있음
+- @Toll 애노테이션, @ToolParam
+- 스웨거의 @Schema
+- Jackson @JsonProperty, @JsonPropertyDescription
+- class, method
+- @Bean 기반 동적 Tool 등록 지원
+- Bean 메서드명 == Tool 이름
+- @Description : Tool 설명
+- 메서드를 직접 Tool로 변환
+  - MethodToolCallback.Builder -> 정보설정 -> ChatClient.tools에 직접등록
+- 함수형 인터페이스 
+  - FunctionToolCallback.Builder -> 설정 
+- 대부분은 @Tool @ToolParam으로 사용하면 됨
+
+### Spring AI Tool Execution
+- 도구정의 -> chat 요청에 포함 전달
+- AI모델이 도구 호출 필요시, 도구명과 인자를 응답으로 전송
+- AI 애플리케이션이 Tool명으로 실제 개발된 Tool 실행
+- AI 애플리케이션이 Tool 결과 최종처리 판단 (Return Direct 기능)
+- Tool 실행 결과를 모델에 전달
+- AI 모델이 Tool 결과를 활용해 최종 응답 생성
+
+### 외부 API 연동 Tool Specification 개발(날씨조회)
+- Tools
+  - wttr.in 서비스 사용
+    - 인증없이 무료 날씨 조회 서비스
+    - curl wttr.in 만으로 현재날씨와 향후 3일간 예보 제공
+    - 다양한 포맷 출력 제공

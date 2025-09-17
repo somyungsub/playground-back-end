@@ -26,7 +26,8 @@ spring:
     ollama:
       chat:
         options:
-          model: hf.co/rippertnt/HyperCLOVAX-SEED-Text-Instruct-1.5B-Q4_K_M-GGUF # ToolCalling 사용시 mistral (7B q4 기본 모델로 약 7GB 메모리 필요) 사용
+          model: mistral
+#          model: hf.co/rippertnt/HyperCLOVAX-SEED-Text-Instruct-1.5B-Q4_K_M-GGUF # ToolCalling 사용시 mistral (7B q4 기본 모델로 약 7GB 메모리 필요) 사용
       init:
         pull-model-strategy: when_missing # when_missing, always, never 설정
 #      base-url: http://localhost:11434
@@ -48,13 +49,15 @@ logging:
           chat:
             client:
               advisor: debug
-
+          tool: debug
 app:
-  pipeline-init: true
+  pipeline-init: false
   vector-store-in-memory-enabled: false
-  print-enabled: true
+  print-enabled: false
   document-location: classpath:fastcampus-springai.pdf
+  default-system-prompt: 한국어를 사용하는 tool 지원 AI 입니다.
   cli:
     chat-enabled: false     # SimpleChatConfig 확인
-    rag-enabled: true    # RagChatConfig 확인
+    rag-enabled: false    # RagChatConfig 확인
+    tool-enabled: false
     filter-expression: ''
