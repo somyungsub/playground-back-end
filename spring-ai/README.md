@@ -332,3 +332,26 @@ $ docker run -d --name local-elasticsearch \
     - 인증없이 무료 날씨 조회 서비스
     - curl wttr.in 만으로 현재날씨와 향후 3일간 예보 제공
     - 다양한 포맷 출력 제공
+
+## Spring AI MCP
+- Model Context Protocol
+- AI 모델이 외부 도구 및 리소스와 구조적으로 상호작용 할 수 있게 해주는 표준 프로토콜
+- MCP는 클라이언트-서버 모델
+- 3-layer 아키텍처
+- 클라이언트/서버계층
+  - McpClient
+    - 서버 연결관리
+  - McpServer
+    - Tools, 리소스, 다양한 기능 제공
+- 세션계층
+  - 통신상태 및 패턴 관리, 메시지 교환의 일관성 보장
+- 트랜스포트 계층
+  - JSON-RPC 메시지 직렬화/역직렬화
+  - STDIO, Streamable HTTP 지원
+- MCP Java SDK 를 기반으로 Spring 애플리케이션에서 MCP를 쉽게 사용할 수 있도록 지원
+- Spring Boot 스타터를 제공하여 MCP 클라이언트와 서버를 간편하게 설정
+- Tool 기능 활용하면서, MCP 구축
+  - ToolCallingManager API 활용
+  - ChatModelAPI
+  - AI Model
+  - MCP -> Tool 관리, Tool 기반
