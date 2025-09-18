@@ -354,4 +354,18 @@ $ docker run -d --name local-elasticsearch \
   - ToolCallingManager API 활용
   - ChatModelAPI
   - AI Model
-  - MCP -> Tool 관리, Tool 기반
+  - MCP -> Tool 관리, Tool 기반 활용
+
+```shell
+# 파이썬
+$ pip install mcp_weather_server
+```
+
+## Spring AI Examples
+- 공식 Spring AI 예제
+  - https://github.com/spring-projects/spring-ai-examples
+- 커뮤니티 예제 및 Spring AI 관련 자료
+  - https://github.com/spring-ai-community/awesome-spring-ai
+  - https://github.com/JM-Lab/spring-ai-playground
+  - https://github.com/JM-Lab/spring-ai-local-cli-chatbot
+  - https://github.com/JM-Lab/spring-ai-fast-campus-course

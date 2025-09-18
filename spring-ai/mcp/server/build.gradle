@@ -37,6 +37,9 @@ dependencies {
     implementation "org.springframework.ai:spring-ai-client-chat"
     implementation "org.springframework.ai:spring-ai-starter-model-openai"
     implementation "org.springframework.ai:spring-ai-starter-model-ollama"
+    implementation "org.springframework.ai:spring-ai-advisors-vector-store"
+    implementation "org.springframework.ai:spring-ai-tika-document-reader"
+    implementation "org.springframework.ai:spring-ai-rag"
     implementation "org.springframework.ai:spring-ai-starter-mcp-server"
     implementation "org.springframework.ai:spring-ai-starter-mcp-server-webflux"
     implementation "org.springframework.ai:spring-ai-starter-mcp-server-webmvc"
@@ -49,4 +52,13 @@ dependencies {
 
     // Test
     testImplementation "org.springframework.boot:spring-boot-starter-test"
+}
+
+springBoot {
+    mainClass = "springai.mcp.server.McpServerApplication"
+}
+
+bootJar {
+    archiveFileName = "mcp-server.jar"
+    destinationDirectory = file(rootDir)
 }

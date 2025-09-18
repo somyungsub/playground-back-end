@@ -3,11 +3,11 @@ package springai.service.tool;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import springai.service.data.WeatherResponse;
 
-@Service
+@Component
 @RequiredArgsConstructor
 public class WeatherTool {
   private final WebClient webClient;

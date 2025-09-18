@@ -1,0 +1,55 @@
+# 어플리케이션 커스텀 옵션 추가
+app:
+  pipeline-init: true
+  vector-store-in-memory-enabled: true
+  print-enabled: false
+  document-location: classpath:fastcampus-springai.pdf
+  default-system-prompt: 한국어를 사용하는 tool 지원 AI 입니다.
+  cli:
+    chat-enabled: false     # SimpleChatConfig 확인
+    rag-enabled: false    # RagChatConfig 확인
+    tool-enabled: false
+    filter-expression: ''
+
+logging:
+  level:
+    io:
+      modelcontextprotocol: DEBUG
+    org:
+      springframework:
+        web: DEBUG
+        ai:
+          chat:
+            client:
+              advisor: DEBUG  # SimpleLoggerAdvisor 등의 Advisor에서 DEBUG 로그 출력
+          tool: DEBUG  # Tool 사용 과련 DEBUG 로그 출력
+          mcp: DEBUG # mcp 사용 과련 DEBUG 로그 출력
+#  file:
+#    path: log
+#    name: log/${spring.application.name}.log
+
+server:
+  port: 9091
+spring:
+  application:
+    name: spring-ai-mcp-server  # 어플리케이션 이름
+  ai:
+    mcp:
+      server:
+        name: ${spring.application.name}
+        version: 0.1.0
+        type: SYNC
+        instructions: "지역을 받아 날씨 정보를 제공하고 Spring AI 강의 정보를 RAG 를 사용해 제공하는 MCP 서버"
+        sse-message-endpoint: /mcp/messages
+    model:
+      chat: ollama  # 여러 Chat 모델 사용시 auto-configurations 에서 사용할 모델 설정 필요 예: openai, ollama
+      embedding: ollama # 여러 Embedding 모델 사용시 auto-configurations에서 사용할 모델 지정 (예: openai, ollama)
+    ollama:
+      init:
+        pull-model-strategy: when_missing  # when_missing, always, never 설정
+      chat:
+        options:
+          model: hf.co/rippertnt/HyperCLOVAX-SEED-Text-Instruct-1.5B-Q4_K_M-GGUF # Structured Output, Tool Calling 사용시 mistral (7B q4 기본 모델로 약 7GB 메모리 필요) 사용
+      embedding:
+        options:
+          model: bge-m3 # embedding model, 기본 모델 mxbai-embed-large는 영어 전용, bge-m3로 변경
