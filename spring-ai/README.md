@@ -373,3 +373,9 @@ $ pip install mcp_weather_server
       - https://github.com/JM-Lab/spring-ai-fast-campus-course
     - AI Agent 파이썬
       - https://github.com/gongwon-nayeon/fastcampus-aiagent
+  
+## 명령어
+```shell
+# mcp 서버 jar 생성 명령어
+$ ./gradlew :spring-ai:mcp:server:clean :spring-ai:mcp:server:bootJar
+```
