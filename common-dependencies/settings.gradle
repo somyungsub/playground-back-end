@@ -1,0 +1,5 @@
+rootProject.name = "common-dependencies"
+
+include 'spring-boot-2'
+include 'spring-boot-3'
+include 'spring-boot-3-data'

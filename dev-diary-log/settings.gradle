@@ -1,0 +1,5 @@
+rootProject.name = 'dev-diary-log'
+
+include 'library'
+include 'spring'
+include 'spring-boot'

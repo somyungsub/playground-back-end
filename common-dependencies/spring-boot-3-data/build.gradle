@@ -1,0 +1,19 @@
+plugins {
+    id "org.springframework.boot" version "${springBootVersion3}"
+    id "io.spring.dependency-management" version "${springManageVersion3}"
+    id 'java-library'
+}
+
+group = "playground-back-end"
+version = "1.0.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    api project(":spring-boot-3")
+    api "org.springframework.boot:spring-boot-starter-data-jpa"
+    api "org.springframework.boot:spring-boot-starter-data-mongodb"
+    api "org.springframework.boot:spring-boot-starter-data-redis"
+}

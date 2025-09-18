@@ -1,0 +1,19 @@
+plugins {
+    id "org.springframework.boot" version "${springBootVersion3}"
+    id "io.spring.dependency-management" version "${springManageVersion3}"
+    id 'java-library'
+}
+
+group = "playground-back-end"
+version = "1.0.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    api "org.springframework.boot:spring-boot-starter"
+    api "org.springframework.boot:spring-boot-starter-web"
+    api "org.springframework.boot:spring-boot-starter-webflux"
+    api "org.springframework.boot:spring-boot-starter-validation"
+}
