@@ -366,6 +366,10 @@ $ pip install mcp_weather_server
   - https://github.com/spring-projects/spring-ai-examples
 - 커뮤니티 예제 및 Spring AI 관련 자료
   - https://github.com/spring-ai-community/awesome-spring-ai
-  - https://github.com/JM-Lab/spring-ai-playground
-  - https://github.com/JM-Lab/spring-ai-local-cli-chatbot
-  - https://github.com/JM-Lab/spring-ai-fast-campus-course
+  - 강의
+    - Spring AI
+      - https://github.com/JM-Lab/spring-ai-playground
+      - https://github.com/JM-Lab/spring-ai-local-cli-chatbot
+      - https://github.com/JM-Lab/spring-ai-fast-campus-course
+    - AI Agent 파이썬
+      - https://github.com/gongwon-nayeon/fastcampus-aiagent
